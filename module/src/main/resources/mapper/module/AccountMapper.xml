@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.AccountMapper">
+    
+    <resultMap type="Account" id="AccountResult">
+        <result property="id"    column="id"    />
+        <result property="douyinId"    column="douyin_id"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="jsonString"    column="json_string"    />
+    </resultMap>
+
+    <sql id="selectAccountVo">
+        select id, douyin_id, create_time,  update_time, json_string from account
+    </sql>
+
+    <select id="selectAccountList" parameterType="Account" resultMap="AccountResult">
+        <include refid="selectAccountVo"/>
+        <where>  
+            <if test="douyinId != null  and douyinId != ''"> and douyin_id = #{douyinId}</if>
+            <if test="jsonString != null  and jsonString != ''"> and json_string = #{jsonString}</if>
+        </where>
+    </select>
+    
+    <select id="selectAccountById" parameterType="Long" resultMap="AccountResult">
+        <include refid="selectAccountVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectByDouyinId" parameterType="String" resultMap="AccountResult">
+        <include refid="selectAccountVo"/>
+        where douyin_id = #{douyinId}
+    </select>
+
+    <insert id="insertAccount" parameterType="Account" useGeneratedKeys="true" keyProperty="id">
+        insert into account
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">douyin_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="jsonString != null">json_string,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">#{douyinId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="jsonString != null">#{jsonString},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAccount" parameterType="Account">
+        update account
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="jsonString != null">json_string = #{jsonString},</if>
+        </trim>
+        where douyin_id = #{douyinId}
+    </update>
+
+    <delete id="deleteAccountById" parameterType="Long">
+        delete from account where id = #{id}
+    </delete>
+
+    <delete id="deleteAccountByIds" parameterType="String">
+        delete from account where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

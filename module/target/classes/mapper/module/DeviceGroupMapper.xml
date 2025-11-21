@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.DeviceGroupMapper">
+    
+    <resultMap type="DeviceGroup" id="DeviceGroupResult">
+        <result property="id"    column="id"    />
+        <result property="groupName"    column="group_name"    />
+        <result property="deviceCount"    column="device_count"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="devId"    column="dev_id"    />
+        <result property="remark"    column="remark"    />
+        <result property="users"    column="users"    />
+    </resultMap>
+
+    <sql id="selectDeviceGroupVo">
+        select id, group_name, device_count, create_time, update_time, dev_id , remark , users from device_group
+    </sql>
+
+    <select id="selectDeviceGroupList" parameterType="DeviceGroup" resultMap="DeviceGroupResult">
+        <include refid="selectDeviceGroupVo"/>
+        <where>  
+            <if test="groupName != null  and groupName != ''"> and group_name like concat('%', #{groupName}, '%')</if>
+            <if test="deviceCount != null "> and device_count = #{deviceCount}</if>
+            <if test="devId != null  and devId != ''"> and dev_id like concat('%', #{devId}, '%')</if>
+            <if test="users != null  and users != ''"> and users like concat('%', #{users}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectDeviceGroupById" parameterType="Long" resultMap="DeviceGroupResult">
+        <include refid="selectDeviceGroupVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDeviceGroup" parameterType="DeviceGroup" useGeneratedKeys="true" keyProperty="id">
+        insert into device_group
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="groupName != null and groupName != ''">group_name,</if>
+            <if test="deviceCount != null">device_count,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="devId != null">dev_id,</if>
+            <if test="remark != null">remark,</if>
+            <if test="users != null">users,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="groupName != null and groupName != ''">#{groupName},</if>
+            <if test="deviceCount != null">#{deviceCount},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="devId != null">#{devId},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="users != null">#{users},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDeviceGroup" parameterType="DeviceGroup">
+        update device_group
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="groupName != null and groupName != ''">group_name = #{groupName},</if>
+            <if test="deviceCount != null">device_count = #{deviceCount},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="devId != null">dev_id = #{devId},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="users != null">users = #{users},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDeviceGroupById" parameterType="Long">
+        delete from device_group where id = #{id}
+    </delete>
+
+    <delete id="deleteDeviceGroupByIds" parameterType="String">
+        delete from device_group where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

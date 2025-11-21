@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.TaskTemplateMapper">
+    
+    <resultMap type="TaskTemplate" id="TaskTemplateResult">
+        <result property="id"    column="id"    />
+        <result property="strategyName"    column="strategy_name"    />
+        <result property="scriptPath"    column="script_path"    />
+        <result property="description"    column="description"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="devId"    column="dev_id"    />
+<!--        <result property="groups"    column="groups"    />-->
+<!--        <result property="allDevIds"    column="all_dev_ids"    />-->
+    </resultMap>
+
+    <sql id="selectTaskTemplateVo">
+        select id, strategy_name, script_path, description, create_time, dev_id
+--         , `groups`, all_dev_ids
+
+        from task_template
+    </sql>
+
+    <select id="selectTaskTemplateList" parameterType="TaskTemplate" resultMap="TaskTemplateResult">
+        <include refid="selectTaskTemplateVo"/>
+        <where>  
+            <if test="strategyName != null  and strategyName != ''"> and strategy_name like concat('%', #{strategyName}, '%')</if>
+            <if test="scriptPath != null  and scriptPath != ''"> and script_path = #{scriptPath}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="devId != null  and devId != ''"> and dev_id = #{devId}</if>
+<!--            <if test="groups != null  and groups != ''"> and `groups` = #{groups}</if>-->
+<!--            <if test="allDevIds != null  and allDevIds != ''"> and all_dev_ids = #{allDevIds}</if>-->
+        </where>
+    </select>
+    
+    <select id="selectTaskTemplateById" parameterType="Long" resultMap="TaskTemplateResult">
+        <include refid="selectTaskTemplateVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTaskTemplate" parameterType="TaskTemplate" useGeneratedKeys="true" keyProperty="id">
+        insert into task_template
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="strategyName != null and strategyName != ''">strategy_name,</if>
+            <if test="scriptPath != null">script_path,</if>
+            <if test="description != null">description,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="devId != null and devId != ''">dev_id,</if>
+<!--            <if test="groups != null">`groups`,</if>-->
+<!--            <if test="allDevIds != null">all_dev_ids,</if>-->
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="strategyName != null and strategyName != ''">#{strategyName},</if>
+            <if test="scriptPath != null">#{scriptPath},</if>
+            <if test="description != null">#{description},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="devId != null and devId != ''">#{devId},</if>
+<!--            <if test="groups != null">#{groups},</if>-->
+<!--            <if test="allDevIds != null">#{allDevIds},</if>-->
+         </trim>
+    </insert>
+
+    <update id="updateTaskTemplate" parameterType="TaskTemplate">
+        update task_template
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="strategyName != null and strategyName != ''">strategy_name = #{strategyName},</if>
+            <if test="scriptPath != null">script_path = #{scriptPath},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="devId != null and devId != ''">dev_id = #{devId},</if>
+<!--            <if test="groups != null">`groups` = #{groups},</if>-->
+<!--            <if test="allDevIds != null">all_dev_ids = #{allDevIds},</if>-->
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTaskTemplateById" parameterType="Long">
+        delete from task_template where id = #{id}
+    </delete>
+
+    <delete id="deleteTaskTemplateByIds" parameterType="String">
+        delete from task_template where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

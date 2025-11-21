@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.StrategyLogMapper">
+    
+    <resultMap type="StrategyLog" id="StrategyLogResult">
+        <result property="id"    column="id"    />
+        <result property="strategyId"    column="strategy_id"    />
+        <result property="targetId"    column="target_id"    />
+        <result property="status"    column="status"    />
+        <result property="logDetail"    column="log_detail"    />
+        <result property="executeTime"    column="execute_time"    />
+    </resultMap>
+
+    <sql id="selectStrategyLogVo">
+        select id, strategy_id, target_id, status, log_detail, execute_time from strategy_log
+    </sql>
+
+    <select id="selectStrategyLogList" parameterType="StrategyLog" resultMap="StrategyLogResult">
+        <include refid="selectStrategyLogVo"/>
+        <where>  
+            <if test="strategyId != null "> and strategy_id = #{strategyId}</if>
+            <if test="targetId != null "> and target_id = #{targetId}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="logDetail != null  and logDetail != ''"> and log_detail = #{logDetail}</if>
+            <if test="executeTime != null "> and execute_time = #{executeTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectStrategyLogById" parameterType="Long" resultMap="StrategyLogResult">
+        <include refid="selectStrategyLogVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertStrategyLog" parameterType="StrategyLog" useGeneratedKeys="true" keyProperty="id">
+        insert into strategy_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="strategyId != null">strategy_id,</if>
+            <if test="targetId != null">target_id,</if>
+            <if test="status != null">status,</if>
+            <if test="logDetail != null">log_detail,</if>
+            <if test="executeTime != null">execute_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="strategyId != null">#{strategyId},</if>
+            <if test="targetId != null">#{targetId},</if>
+            <if test="status != null">#{status},</if>
+            <if test="logDetail != null">#{logDetail},</if>
+            <if test="executeTime != null">#{executeTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateStrategyLog" parameterType="StrategyLog">
+        update strategy_log
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="strategyId != null">strategy_id = #{strategyId},</if>
+            <if test="targetId != null">target_id = #{targetId},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="logDetail != null">log_detail = #{logDetail},</if>
+            <if test="executeTime != null">execute_time = #{executeTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteStrategyLogById" parameterType="Long">
+        delete from strategy_log where id = #{id}
+    </delete>
+
+    <delete id="deleteStrategyLogByIds" parameterType="String">
+        delete from strategy_log where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

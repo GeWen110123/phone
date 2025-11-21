@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.DeviceLogMapper">
+    
+    <resultMap type="DeviceLog" id="DeviceLogResult">
+        <result property="id"    column="id"    />
+        <result property="deviceId"    column="device_id"    />
+        <result property="actionType"    column="action_type"    />
+        <result property="actionDetail"    column="action_detail"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectDeviceLogVo">
+        select id, device_id, action_type, action_detail, create_time from device_log
+    </sql>
+
+    <select id="selectDeviceLogList" parameterType="DeviceLog" resultMap="DeviceLogResult">
+        <include refid="selectDeviceLogVo"/>
+        <where>  
+            <if test="deviceId != null "> and device_id = #{deviceId}</if>
+            <if test="actionType != null  and actionType != ''"> and action_type = #{actionType}</if>
+            <if test="actionDetail != null  and actionDetail != ''"> and action_detail = #{actionDetail}</if>
+        </where>
+    </select>
+    
+    <select id="selectDeviceLogById" parameterType="Long" resultMap="DeviceLogResult">
+        <include refid="selectDeviceLogVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDeviceLog" parameterType="DeviceLog" useGeneratedKeys="true" keyProperty="id">
+        insert into device_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="deviceId != null">device_id,</if>
+            <if test="actionType != null and actionType != ''">action_type,</if>
+            <if test="actionDetail != null">action_detail,</if>
+            <if test="createTime != null">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="deviceId != null">#{deviceId},</if>
+            <if test="actionType != null and actionType != ''">#{actionType},</if>
+            <if test="actionDetail != null">#{actionDetail},</if>
+            <if test="createTime != null">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDeviceLog" parameterType="DeviceLog">
+        update device_log
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="deviceId != null">device_id = #{deviceId},</if>
+            <if test="actionType != null and actionType != ''">action_type = #{actionType},</if>
+            <if test="actionDetail != null">action_detail = #{actionDetail},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDeviceLogById" parameterType="Long">
+        delete from device_log where id = #{id}
+    </delete>
+
+    <delete id="deleteDeviceLogByIds" parameterType="String">
+        delete from device_log where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

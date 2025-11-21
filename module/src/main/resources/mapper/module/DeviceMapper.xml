@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.DeviceMapper">
+    
+    <resultMap type="Device" id="DeviceResult">
+        <result property="id"    column="id"    />
+        <result property="deviceCode"    column="device_code"    />
+        <result property="deviceName"    column="device_name"    />
+        <result property="model"    column="model"    />
+        <result property="users"    column="users"    />
+        <result property="systemVersion"    column="system_version"    />
+        <result property="kernelVersion"    column="kernel_version"    />
+        <result property="storageUsage"    column="storage_usage"    />
+        <result property="status"    column="status"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="lastOnlineTime"    column="last_online_time"    />
+    </resultMap>
+
+    <sql id="selectDeviceVo">
+        select id, device_code, device_name, model,users, system_version, kernel_version, storage_usage, status, create_time, update_time, last_online_time from device
+    </sql>
+
+    <select id="selectDeviceList" parameterType="Device" resultMap="DeviceResult">
+        <include refid="selectDeviceVo"/>
+        <where>  
+            <if test="deviceCode != null  and deviceCode != ''"> and device_code = #{deviceCode}</if>
+            <if test="deviceName != null  and deviceName != ''"> and device_name like concat('%', #{deviceName}, '%')</if>
+            <if test="users != null  and users != ''"> and users like concat('%', #{users}, '%')</if>
+            <if test="model != null  and model != ''"> and model = #{model}</if>
+            <if test="systemVersion != null  and systemVersion != ''"> and system_version = #{systemVersion}</if>
+            <if test="kernelVersion != null  and kernelVersion != ''"> and kernel_version = #{kernelVersion}</if>
+            <if test="storageUsage != null  and storageUsage != ''"> and storage_usage = #{storageUsage}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="lastOnlineTime != null "> and last_online_time = #{lastOnlineTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectDeviceById" parameterType="Long" resultMap="DeviceResult">
+        <include refid="selectDeviceVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDevice" parameterType="Device" useGeneratedKeys="true" keyProperty="id">
+        insert into device
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="deviceCode != null and deviceCode != ''">device_code,</if>
+            <if test="deviceName != null">device_name,</if>
+            <if test="model != null">model,</if>
+            <if test="users != null">users,</if>
+            <if test="systemVersion != null">system_version,</if>
+            <if test="kernelVersion != null">kernel_version,</if>
+            <if test="storageUsage != null">storage_usage,</if>
+            <if test="status != null">status,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="lastOnlineTime != null">last_online_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="deviceCode != null and deviceCode != ''">#{deviceCode},</if>
+            <if test="deviceName != null">#{deviceName},</if>
+            <if test="model != null">#{model},</if>
+            <if test="users != null">#{users},</if>
+            <if test="systemVersion != null">#{systemVersion},</if>
+            <if test="kernelVersion != null">#{kernelVersion},</if>
+            <if test="storageUsage != null">#{storageUsage},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="lastOnlineTime != null">#{lastOnlineTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDevice" parameterType="Device">
+        update device
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="deviceCode != null and deviceCode != ''">device_code = #{deviceCode},</if>
+            <if test="deviceName != null">device_name = #{deviceName},</if>
+            <if test="model != null">model = #{model},</if>
+            <if test="users != null">users = #{users},</if>
+            <if test="systemVersion != null">system_version = #{systemVersion},</if>
+            <if test="kernelVersion != null">kernel_version = #{kernelVersion},</if>
+            <if test="storageUsage != null">storage_usage = #{storageUsage},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="lastOnlineTime != null">last_online_time = #{lastOnlineTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDeviceById" parameterType="Long">
+        delete from device where id = #{id}
+    </delete>
+
+    <delete id="deleteDeviceByIds" parameterType="String">
+        delete from device where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
