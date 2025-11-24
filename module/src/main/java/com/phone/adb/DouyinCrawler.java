@@ -2,18 +2,17 @@ package com.phone.adb;
 
 import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -113,7 +112,8 @@ public class DouyinCrawler {
                     elements.get(0).sendKeys(accountName);
                     return true;
                 }
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
         logger.severe("搜索输入框未找到");
         return false;
@@ -178,7 +178,8 @@ public class DouyinCrawler {
                     info.forEach((k, v) -> logger.info(k + " : " + v));
                     return true;
                 }
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
         logger.warning("未能验证进入主页");
         return false;
@@ -192,12 +193,16 @@ public class DouyinCrawler {
                 sleep(1500);
                 return true;
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
         return false;
     }
 
     private void sleep(long millis) {
-        try { Thread.sleep(millis); } catch (InterruptedException ignored) {}
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException ignored) {
+        }
     }
 
     // ===========================
@@ -223,21 +228,51 @@ public class DouyinCrawler {
         if (driver != null) driver.quit();
     }
 
-    // ===========================
-    // main 测试
-    // ===========================
-    public static void main(String[] args) throws MalformedURLException {
-        UiAutomator2Options options = new UiAutomator2Options()
-                .setPlatformName("Android")
-                .setUdid("ec86e946")
-                .setNoReset(true);
+    /**
+     * 启动抖音并爬取指定账号信息
+     *
+     * @param devId       设备ID（UDID）
+     * @param accountName 抖音账号名称
+     * @return 是否成功
+     */
+    public static Map<String, Object> crawlAccount(String devId, String accountName) {
+        Map<String, Object> info = new HashMap<>();
+        AndroidDriver driver = null;
+        try {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("platformName", "Android");
+            capabilities.setCapability("udid", devId);
+            capabilities.setCapability("noReset", true);
+            capabilities.setCapability("appPackage", "com.ss.android.ugc.aweme"); // 抖音包名
+            capabilities.setCapability("appActivity", ".main.MainActivity"); // 启动Activity
 
-        AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), options);
-        DouyinCrawler crawler = new DouyinCrawler(driver);
+            driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+            DouyinCrawler crawler = new DouyinCrawler(driver);
 
-        if (!crawler.startDouyin()) System.exit(1);
-        if (!crawler.searchAndEnterAccount("Becarefulleea")) System.exit(1);
+            if (!crawler.startDouyin())
+                return info;
 
-        crawler.quit();
+            if (!crawler.searchAndEnterAccount(accountName)) return info;
+
+            crawler.fetchAccountInfo();
+            return info;
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return info;
+        } finally {
+            if (driver != null) {
+                driver.quit();
+            }
+        }
+    }
+
+    // 如果需要保留 main 调试入口
+    public static void main(String[] args) {
+        String devId = "ec86e946";
+        String accountName = "Becarefulleea";
+
+        Map<String,Object> info = crawlAccount(devId, accountName);
+        System.out.println(info);
     }
 }

@@ -23,635 +23,292 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91603825-72bf-4802-ae2d-763b1daebf3e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/admin.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/ruoyi-admin.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/RuoYiApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/RuoYiServletInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/ScheduledTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/common/CaptchaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/common/CommonController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/monitor/CacheController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/monitor/ServerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/monitor/SysLogininforController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/monitor/SysOperlogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/monitor/SysUserOnlineController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysDeptController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysDictDataController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysDictTypeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysIndexController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysNoticeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysPostController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysRegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysRoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/system/SysUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/tool/SwaggerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/controller/tool/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/phone/web/core/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/resources/META-INF/spring-devtools.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/resources/application-druid.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/resources/i18n/messages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/resources/ipinfodb/GeoLite2-ASN.mmdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/resources/ipinfodb/GeoLite2-City.mmdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/resources/ipinfodb/GeoLite2-Country.mmdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/common.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/ruoyi-common.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/annotation/DataScope.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/annotation/DataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/annotation/Excel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/annotation/Excels.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/annotation/Log.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/annotation/RepeatSubmit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/config/RuoYiConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/constant/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/constant/GenConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/constant/HttpStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/constant/ScheduleConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/constant/UserConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/controller/BaseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/AjaxResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/NewBaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/TreeEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/TreeSelect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/entity/SysDept.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/entity/SysDictData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/entity/SysDictType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/entity/SysMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/entity/SysRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/entity/SysUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/model/LoginBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/model/LoginUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/domain/model/RegisterBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/page/PageDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/page/TableDataInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/page/TableSupport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/redis/RedisCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/text/CharsetKit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/text/Convert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/core/text/StrFormatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/enums/BusinessStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/enums/BusinessType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/enums/DataSourceType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/enums/HttpMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/enums/OperatorType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/enums/UserStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/BaseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/CustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/DemoModeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/UtilException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/file/FileException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/file/FileNameLengthLimitExceededException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/file/FileSizeLimitExceededException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/file/InvalidExtensionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/job/TaskException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/user/CaptchaException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/user/CaptchaExpireException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/user/UserException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/exception/user/UserPasswordNotMatchException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/filter/RepeatableFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/filter/RepeatedlyRequestWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/filter/XssFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/filter/XssHttpServletRequestWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/Arith.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/ContectFlask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/DateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/DictUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/ExceptionUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/IpLocalAnalyUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/LogUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/MessageUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/SecurityUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/ServletUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/StringUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/Threads.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/VerifyCodeUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/bean/BeanUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/file/FileTypeUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/file/FileUploadUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/file/FileUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/file/ImageUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/file/MimeTypeUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/html/EscapeUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/html/HTMLFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/http/HttpHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/http/HttpUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/ip/AddressUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/ip/IpUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/ip/IpUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/poi/ExcelUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/reflect/ReflectUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/sign/Base64.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/sign/Md5Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/spring/SpringUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/sql/SqlUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/uuid/IdUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/phone/common/utils/uuid/UUID.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataScope.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataSource.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$Align.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$ColumnType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$Type.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excels.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Log.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/RepeatSubmit.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/config/RuoYiConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/Constants.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/GenConstants.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/HttpStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/ScheduleConstants$Status.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/ScheduleConstants.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/UserConstants.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/controller/BaseController$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/controller/BaseController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/AjaxResult.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/BaseEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/NewBaseEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/TreeEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/TreeSelect.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysDept.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysDictData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysDictType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysMenu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysRole.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysUser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/model/LoginBody.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/model/LoginUser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/model/RegisterBody.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/page/PageDomain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/page/TableDataInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/page/TableSupport.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/redis/RedisCache.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/text/CharsetKit.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/text/Convert.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/text/StrFormatter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/BusinessStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/BusinessType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/DataSourceType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/HttpMethod.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/OperatorType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/UserStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/BaseException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/CustomException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/DemoModeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/UtilException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/FileException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/FileNameLengthLimitExceededException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/FileSizeLimitExceededException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidFlashExtensionException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidImageExtensionException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidMediaExtensionException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidVideoExtensionException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/job/TaskException$Code.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/job/TaskException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/CaptchaException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/CaptchaExpireException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/UserException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/UserPasswordNotMatchException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/RepeatableFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/RepeatedlyRequestWrapper$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/RepeatedlyRequestWrapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/XssFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/XssHttpServletRequestWrapper$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/XssHttpServletRequestWrapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/Arith.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ContectFlask.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/DateUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/DictUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ExceptionUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/IpLocalAnalyUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/LogUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/MessageUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/SecurityUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ServletUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/StringUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/Threads.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/VerifyCodeUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/bean/BeanUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/FileTypeUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/FileUploadUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/FileUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/ImageUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/MimeTypeUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/html/EscapeUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/html/HTMLFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$TrustAnyHostnameVerifier.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$TrustAnyTrustManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ip/AddressUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ip/IpUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ip/IpUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/poi/ExcelUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/reflect/ReflectUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/sign/Base64.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/sign/Md5Utils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/spring/SpringUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/sql/SqlUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/IdUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID$Holder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/framework.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/ruoyi-framework.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/aspectj/DataScopeAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/aspectj/DataSourceAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/aspectj/LogAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/ApplicationConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/CaptchaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/DruidConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/FastJson2JsonRedisSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/FilterConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/KaptchaTextCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/MyBatisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/OkHttpConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/OkHttpRetryIntercepter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/ResourcesConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/ServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/ThreadPoolConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/properties/DruidProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/datasource/DynamicDataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/datasource/DynamicDataSourceContextHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/interceptor/RepeatSubmitInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/interceptor/impl/SameUrlDataInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/manager/AsyncManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/manager/ShutdownManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/manager/factory/AsyncFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/security/filter/JwtAuthenticationTokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/security/handle/AuthenticationEntryPointImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/security/handle/LogoutSuccessHandlerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/domain/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/domain/server/Cpu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/domain/server/Jvm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/domain/server/Mem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/domain/server/Sys.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/domain/server/SysFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/service/PermissionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/service/SysLoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/service/SysPermissionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/service/SysRegisterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/service/TokenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/web/service/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataScopeAspect.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataSourceAspect.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/LogAspect.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ApplicationConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/CaptchaConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/DruidConfig$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/DruidConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/FastJson2JsonRedisSerializer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/FilterConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/KaptchaTextCreator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/MyBatisConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpConfiguration$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpRetryIntercepter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/RedisConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ResourcesConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/SecurityConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ServerConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ThreadPoolConfig$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ThreadPoolConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/properties/DruidProperties.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/datasource/DynamicDataSource.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/datasource/DynamicDataSourceContextHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/interceptor/RepeatSubmitInterceptor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/interceptor/impl/SameUrlDataInterceptor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/AsyncManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/ShutdownManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/filter/JwtAuthenticationTokenFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/handle/AuthenticationEntryPointImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/handle/LogoutSuccessHandlerImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/Server.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Cpu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Jvm.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Mem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Sys.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/SysFile.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/exception/GlobalExceptionHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/PermissionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysLoginService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysPermissionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysRegisterService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/TokenService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/UserDetailsServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/framework/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/module.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/ruoyi-module.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/AccountInfoFetcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/DouyinCrawler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/ElementFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/TextCleaner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/XPathRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/StatusController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/AccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/AccountFolderReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/DeviceAppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/DeviceCommandController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/DeviceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/DeviceGroupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/DeviceLogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/StrategyLogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/StrategyTemplateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/TaskLogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/TaskTemplateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/Device.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/DeviceApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/DeviceCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/DeviceGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/DeviceLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/StrategyLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/StrategyTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/TaskLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/TaskTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/douyin/DouyinApiBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/douyin/DouyinApiClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/douyin/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/mapper/AccountMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/mapper/DeviceAppMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/mapper/DeviceCommandMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/mapper/DeviceGroupMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/mapper/DeviceLogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/mapper/DeviceMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/mapper/StrategyLogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/mapper/StrategyTemplateMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/mapper/TaskLogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/mapper/TaskTemplateMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/IAccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/IDeviceAppService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/IDeviceCommandService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/IDeviceGroupService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/IDeviceLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/IDeviceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/IStrategyLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/IStrategyTemplateService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/ITaskLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/ITaskTemplateService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/AccountServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DeviceAppServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DeviceCommandServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DeviceGroupServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DeviceLogServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DeviceServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/StrategyLogServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/StrategyTemplateServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/TaskLogServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/TaskTemplateServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/Aes128Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/FilterConfigModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/JwtUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/ModuleFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/OkHttpUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/UUIDTypeHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/redisTg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/sha256Hmac.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/AccountMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/DeviceAppMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/DeviceCommandMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/DeviceGroupMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/DeviceLogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/DeviceMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/StrategyLogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/StrategyTemplateMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/TaskLogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/TaskTemplateMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/AccountInfoFetcher.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/DouyinCrawler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/ElementFinder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/TextCleaner.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/XPathRegistry.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/StatusController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/AccountController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/AccountFolderReader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceAppController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceCommandController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceGroupController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceLogController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/StrategyLogController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/StrategyTemplateController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/TaskLogController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/TaskTemplateController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/Account.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/Device.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceApp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceGroup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceLog.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/StrategyLog.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/StrategyTemplate.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/TaskLog.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/TaskTemplate.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/douyin/DouyinApiBase.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/douyin/DouyinApiClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/douyin/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/AccountMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceAppMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceCommandMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceGroupMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceLogMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/StrategyLogMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/StrategyTemplateMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/TaskLogMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/TaskTemplateMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IAccountService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceAppService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceCommandService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceGroupService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceLogService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IStrategyLogService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IStrategyTemplateService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/ITaskLogService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/ITaskTemplateService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/AccountServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceAppServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceCommandServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceGroupServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceLogServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/StrategyLogServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/StrategyTemplateServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/TaskLogServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/TaskTemplateServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/FilterConfigModule.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/JwtUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/ModuleFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/OkHttpUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/UUIDTypeHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/redisTg.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/sha256Hmac.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/AccountMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/DeviceAppMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/DeviceCommandMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/DeviceGroupMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/DeviceLogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/DeviceMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/StrategyLogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/StrategyTemplateMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/TaskLogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/TaskTemplateMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql/phone.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phone.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi.ipr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi.iws" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ry.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ry.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/ruoyi-system.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/SysLogininfor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/SysNotice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/SysOperLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/SysPost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/SysRoleDept.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/SysRoleMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/SysUserOnline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/SysUserPost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/SysUserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/vo/MetaVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/domain/vo/RouterVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysDeptMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysDictDataMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysDictTypeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysLogininforMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysMenuMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysNoticeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysOperLogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysPostMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysRoleDeptMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysRoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysRoleMenuMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysUserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysUserPostMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/mapper/SysUserRoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysDeptService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysDictDataService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysDictTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysLogininforService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysMenuService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysNoticeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysOperLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysPostService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysUserOnlineService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/ISysUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysDeptServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysDictDataServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysDictTypeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysLogininforServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysMenuServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysNoticeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysOperLogServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysPostServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysRoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysUserOnlineServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/java/com/phone/system/service/impl/SysUserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysDeptMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysDictDataMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysDictTypeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysLogininforMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysMenuMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysNoticeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysOperLogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysPostMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysRoleDeptMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysRoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysRoleMenuMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysUserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysUserPostMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/src/main/resources/mapper/system/SysUserRoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/system.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysLogininfor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysNotice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysOperLog.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysPost.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysRoleDept.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysRoleMenu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysUserOnline.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysUserPost.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysUserRole.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/vo/MetaVo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/vo/RouterVo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysDeptMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysDictDataMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysDictTypeMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysLogininforMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysMenuMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysNoticeMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysOperLogMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysPostMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysRoleDeptMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysRoleMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysRoleMenuMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysUserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysUserPostMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysUserRoleMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysDeptService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysDictDataService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysDictTypeService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysLogininforService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysMenuService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysNoticeService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysOperLogService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysPostService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysRoleService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysUserOnlineService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysUserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysDeptServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysDictDataServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysDictTypeServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysLogininforServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysMenuServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysNoticeServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysOperLogServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysPostServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysRoleServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysUserOnlineServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysUserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysDeptMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysDictDataMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysDictTypeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysLogininforMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysMenuMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysNoticeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysOperLogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysPostMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysRoleDeptMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysRoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysRoleMenuMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysUserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysUserPostMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/classes/mapper/system/SysUserRoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DouyinTaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataScope.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataScope.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$Align.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$Align.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$ColumnType.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$ColumnType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excels.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excels.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/RepeatSubmit.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/RepeatSubmit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/config/RuoYiConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/config/RuoYiConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/GenConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/GenConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/HttpStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/HttpStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/ScheduleConstants$Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/ScheduleConstants$Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/ScheduleConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/ScheduleConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/UserConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/constant/UserConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/controller/BaseController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/controller/BaseController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/controller/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/controller/BaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/AjaxResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/AjaxResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/BaseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/BaseEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/NewBaseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/NewBaseEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/TreeEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/TreeEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/TreeSelect.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/TreeSelect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysDept.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysDept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysDictData.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysDictData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysDictType.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysDictType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysRole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/entity/SysUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/model/LoginBody.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/model/LoginBody.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/model/LoginUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/model/LoginUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/model/RegisterBody.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/domain/model/RegisterBody.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/page/PageDomain.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/page/PageDomain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/page/TableDataInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/page/TableDataInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/page/TableSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/page/TableSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/redis/RedisCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/redis/RedisCache.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/text/CharsetKit.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/text/CharsetKit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/text/Convert.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/text/Convert.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/text/StrFormatter.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/core/text/StrFormatter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/BusinessStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/BusinessStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/BusinessType.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/BusinessType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/DataSourceType.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/DataSourceType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/HttpMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/HttpMethod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/OperatorType.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/OperatorType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/UserStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/enums/UserStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/BaseException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/BaseException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/CustomException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/CustomException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/DemoModeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/DemoModeException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/UtilException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/UtilException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/FileException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/FileException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/FileNameLengthLimitExceededException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/FileNameLengthLimitExceededException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/FileSizeLimitExceededException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/FileSizeLimitExceededException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidFlashExtensionException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidFlashExtensionException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidImageExtensionException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidImageExtensionException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidMediaExtensionException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidMediaExtensionException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidVideoExtensionException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException$InvalidVideoExtensionException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/file/InvalidExtensionException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/job/TaskException$Code.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/job/TaskException$Code.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/job/TaskException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/job/TaskException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/CaptchaException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/CaptchaException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/CaptchaExpireException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/CaptchaExpireException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/UserException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/UserException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/UserPasswordNotMatchException.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/exception/user/UserPasswordNotMatchException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/RepeatableFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/RepeatableFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/RepeatedlyRequestWrapper$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/RepeatedlyRequestWrapper$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/RepeatedlyRequestWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/RepeatedlyRequestWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/XssFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/XssFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/XssHttpServletRequestWrapper$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/XssHttpServletRequestWrapper$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/XssHttpServletRequestWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/filter/XssHttpServletRequestWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/Arith.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/Arith.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ContectFlask.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ContectFlask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/DateUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/DateUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/DictUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/DictUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ExceptionUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ExceptionUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/IpLocalAnalyUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/IpLocalAnalyUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/LogUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/LogUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/MessageUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/MessageUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/SecurityUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/SecurityUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ServletUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ServletUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/StringUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/StringUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/Threads.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/Threads.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/VerifyCodeUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/VerifyCodeUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/bean/BeanUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/bean/BeanUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/FileTypeUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/FileTypeUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/FileUploadUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/FileUploadUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/FileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/FileUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/ImageUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/ImageUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/MimeTypeUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/file/MimeTypeUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/html/EscapeUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/html/EscapeUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/html/HTMLFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/html/HTMLFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$TrustAnyHostnameVerifier.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$TrustAnyHostnameVerifier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$TrustAnyTrustManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$TrustAnyTrustManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ip/AddressUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ip/AddressUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ip/IpUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ip/IpUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ip/IpUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/ip/IpUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/poi/ExcelUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/poi/ExcelUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/reflect/ReflectUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/reflect/ReflectUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/sign/Base64.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/sign/Base64.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/sign/Md5Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/sign/Md5Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/spring/SpringUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/spring/SpringUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/sql/SqlUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/sql/SqlUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/IdUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/IdUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID$Holder.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID$Holder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework/framework.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataScopeAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataScopeAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataSourceAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataSourceAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/LogAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/LogAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ApplicationConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/CaptchaConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/CaptchaConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/DruidConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/DruidConfig$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/DruidConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/DruidConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/FastJson2JsonRedisSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/FastJson2JsonRedisSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/FilterConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/FilterConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/KaptchaTextCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/KaptchaTextCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/MyBatisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/MyBatisConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpConfiguration$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpConfiguration$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpRetryIntercepter.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpRetryIntercepter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/RedisConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ResourcesConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ResourcesConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ServerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ServerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ThreadPoolConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ThreadPoolConfig$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ThreadPoolConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ThreadPoolConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/properties/DruidProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/properties/DruidProperties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/datasource/DynamicDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/datasource/DynamicDataSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/datasource/DynamicDataSourceContextHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/datasource/DynamicDataSourceContextHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/interceptor/RepeatSubmitInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/interceptor/RepeatSubmitInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/interceptor/impl/SameUrlDataInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/interceptor/impl/SameUrlDataInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/AsyncManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/AsyncManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/ShutdownManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/ShutdownManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/filter/JwtAuthenticationTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/filter/JwtAuthenticationTokenFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/handle/AuthenticationEntryPointImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/handle/AuthenticationEntryPointImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/handle/LogoutSuccessHandlerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/handle/LogoutSuccessHandlerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Cpu.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Cpu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Jvm.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Jvm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Mem.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Mem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Sys.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Sys.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/SysFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/SysFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/PermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/PermissionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysLoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysLoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysPermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysPermissionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysRegisterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysRegisterService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/TokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/TokenService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/UserDetailsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/module.iml" beforeDir="false" afterPath="$PROJECT_DIR$/module/module.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/DouyinCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/DouyinCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/ModuleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/ModuleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/src/main/resources/mapper/module/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/AccountMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/adb/AccountInfoFetcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/AccountInfoFetcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/adb/DouyinCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/DouyinCrawler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/adb/ElementFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/ElementFinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/adb/TextCleaner.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/TextCleaner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/adb/XPathRegistry.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/XPathRegistry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/StatusController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/StatusController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/AccountFolderReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/AccountFolderReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceAppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceAppController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceCommandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceCommandController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceGroupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceGroupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceLogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/DeviceLogController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/StrategyLogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/StrategyLogController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/StrategyTemplateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/StrategyTemplateController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/TaskLogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/TaskLogController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/TaskTemplateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/controller/TaskTemplateController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/Device.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/Device.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceGroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/DeviceLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/StrategyLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/StrategyLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/StrategyTemplate.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/StrategyTemplate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/TaskLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/TaskLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/TaskTemplate.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/domain/TaskTemplate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/douyin/DouyinApiBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/douyin/DouyinApiBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/douyin/DouyinApiClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/douyin/DouyinApiClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/douyin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/douyin/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/AccountMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/AccountMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceAppMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceAppMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceCommandMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceCommandMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceGroupMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceGroupMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceLogMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceLogMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/DeviceMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/StrategyLogMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/StrategyLogMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/StrategyTemplateMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/StrategyTemplateMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/TaskLogMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/TaskLogMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/TaskTemplateMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/mapper/TaskTemplateMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IAccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceAppService.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceAppService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceCommandService.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceCommandService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceGroupService.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceGroupService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceLogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceLogService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IDeviceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IStrategyLogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IStrategyLogService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IStrategyTemplateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/IStrategyTemplateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/ITaskLogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/ITaskLogService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/ITaskTemplateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/ITaskTemplateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/AccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceAppServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceAppServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceCommandServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceCommandServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceGroupServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceGroupServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceLogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceLogServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/DeviceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/StrategyLogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/StrategyLogServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/StrategyTemplateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/StrategyTemplateServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/TaskLogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/TaskLogServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/TaskTemplateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/service/impl/TaskTemplateServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/FilterConfigModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/FilterConfigModule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/JwtUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/ModuleFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/ModuleFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/OkHttpUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/OkHttpUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/UUIDTypeHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/UUIDTypeHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/redisTg.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/redisTg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/sha256Hmac.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/sha256Hmac.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/classes/mapper/module/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/AccountMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi.iws" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/system/system.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysLogininfor.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysLogininfor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysNotice.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysNotice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysOperLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysOperLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysPost.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysPost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysRoleDept.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysRoleDept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysRoleMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysRoleMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysUserOnline.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysUserOnline.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysUserPost.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysUserPost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysUserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysUserRole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/vo/MetaVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/vo/MetaVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/vo/RouterVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/vo/RouterVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysDeptMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysDeptMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysDictDataMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysDictDataMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysDictTypeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysDictTypeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysLogininforMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysLogininforMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysMenuMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysMenuMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysNoticeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysNoticeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysOperLogMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysOperLogMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysPostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysPostMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysRoleDeptMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysRoleDeptMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysRoleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysRoleMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysRoleMenuMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysRoleMenuMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysUserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysUserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysUserPostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysUserPostMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysUserRoleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/mapper/SysUserRoleMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysDeptService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysDeptService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysDictDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysDictDataService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysDictTypeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysDictTypeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysLogininforService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysLogininforService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysMenuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysMenuService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysNoticeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysNoticeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysOperLogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysOperLogService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysPostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysPostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysRoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysRoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysUserOnlineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysUserOnlineService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/ISysUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysDeptServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysDeptServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysDictDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysDictDataServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysDictTypeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysDictTypeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysLogininforServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysLogininforServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysMenuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysMenuServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysNoticeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysNoticeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysOperLogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysOperLogServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysPostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysPostServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysRoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysRoleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysUserOnlineServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysUserOnlineServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysUserServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -860,12 +517,12 @@
     </option>
     <option name="importingSettings">
       <MavenImportingSettings>
-        <option name="jdkForImporter" value="17" />
+        <option name="jdkForImporter" value="1.8" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="MavenRunner">
-    <option name="jreName" value="17" />
+    <option name="jreName" value="1.8" />
   </component>
   <component name="PerforceConfiguration">
     <option name="PORT" value="magic:1666" />
@@ -908,28 +565,28 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.archetype.catalogs",
-    "spring.configuration.checksum": "36212a898d444543ded336beff23b746",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;36212a898d444543ded336beff23b746&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -949,11 +606,14 @@
     <option name="myCommands">
       <command value="mvn dependency:tree | findstr guava" />
       <command value="mvn dependency:tree" />
-      <command value="mvn clean install" />
       <command value="mvn clean compile" />
+      <command value="mvn clean install" />
+      <command value="mvn clean" />
+      <command value="mvn dependency:purge-local-repository" />
+      <command value="mvn clean install -U" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.DouyinCrawler">
+  <component name="RunManager" selected="Spring Boot.RuoYiApplication ">
     <configuration selected="false" default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -964,38 +624,9 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="VM_PARAMETERS" />
     </configuration>
-    <configuration name="AccountController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.phone.module.controller.AccountController" />
-      <module name="module" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.phone.module.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AccountFolderReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.phone.module.douyin.AccountFolderReader" />
-      <module name="module" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.phone.module.douyin.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DouyinCrawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.phone.adb.DouyinCrawler" />
       <module name="module" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.phone.adb.*" />
@@ -1036,12 +667,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.DouyinCrawler" />
+      <item itemvalue="Spring Boot.RuoYiApplication " />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DouyinCrawler" />
         <item itemvalue="Spring Boot.RuoYiApplication " />
-        <item itemvalue="Application.AccountFolderReader" />
-        <item itemvalue="Application.AccountController" />
+        <item itemvalue="Application.DouyinCrawler" />
       </list>
     </recent_temporary>
   </component>
@@ -1101,7 +734,7 @@
       <workItem from="1762915277851" duration="3518000" />
       <workItem from="1762998910142" duration="3202000" />
       <workItem from="1763629142796" duration="1839000" />
-      <workItem from="1763634196080" duration="11204000" />
+      <workItem from="1763634196080" duration="24517000" />
     </task>
     <task id="LOCAL-00001" summary="1.模块一完成，关联设备信息，链路信息展示和排序。 &#10;2.访问日志信息完成， 添加MyBatis的XML映射文件，定义针对clickHouse数据库实体&#10;3.完成近一个月记录，按照时间排序以及一级标签、二级标签、网站名筛选">
       <created>1717410516643</created>
@@ -1222,7 +855,14 @@
       <option name="project" value="LOCAL" />
       <updated>1718964121206</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="项目上传">
+      <created>1763707070671</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1763707070671</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1266,7 +906,8 @@
     <MESSAGE value="添加并完成高级搜索功能模块&#10;聚合函数sql语句编写及修改测试&#10;修改数据存在中文时无法查询问题&#10;添加名称以及修改功能" />
     <MESSAGE value="超时时间修改" />
     <MESSAGE value="1.高级检索改为后台运行，保存相关samc数据到表中&#10;2.添加上次执行时间和执行时长字段" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.高级检索改为后台运行，保存相关samc数据到表中&#10;2.添加上次执行时间和执行时长字段" />
+    <MESSAGE value="项目上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="项目上传" />
   </component>
   <component name="VssConfiguration">
     <CheckoutOptions>

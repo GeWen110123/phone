@@ -6,6 +6,7 @@ D:\IdeaProjects\phone\module\src\main\java\com\phone\module\controller\StrategyT
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\domain\DeviceCommand.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\domain\StrategyLog.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\mapper\DeviceGroupMapper.java
+D:\IdeaProjects\phone\module\src\main\java\com\phone\adb\ElementFinder.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\service\impl\TaskLogServiceImpl.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\domain\TaskTemplate.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\adb\AccountInfoFetcher.java
@@ -20,6 +21,7 @@ D:\IdeaProjects\phone\module\src\main\java\com\phone\module\utils\UUIDTypeHandle
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\controller\DeviceCommandController.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\service\IAccountService.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\douyin\DouyinApiClient.java
+D:\IdeaProjects\phone\module\src\main\java\com\phone\module\service\impl\DouyinTaskService.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\mapper\DeviceLogMapper.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\mapper\StrategyTemplateMapper.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\mapper\TaskLogMapper.java
@@ -39,6 +41,7 @@ D:\IdeaProjects\phone\module\src\main\java\com\phone\module\service\IDeviceComma
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\utils\JwtUtils.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\adb\DouyinCrawler.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\service\ITaskLogService.java
+D:\IdeaProjects\phone\module\src\main\java\com\phone\adb\TextCleaner.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\domain\DeviceGroup.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\utils\OkHttpUtil.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\service\IStrategyTemplateService.java
@@ -61,5 +64,6 @@ D:\IdeaProjects\phone\module\src\main\java\com\phone\module\service\impl\DeviceG
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\service\impl\DeviceServiceImpl.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\domain\Account.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\domain\Device.java
+D:\IdeaProjects\phone\module\src\main\java\com\phone\adb\XPathRegistry.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\mapper\AccountMapper.java
 D:\IdeaProjects\phone\module\src\main\java\com\phone\module\service\impl\AccountServiceImpl.java

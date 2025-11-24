@@ -102,6 +102,5 @@ com\phone\common\utils\sql\SqlUtil.class
 com\phone\common\constant\HttpStatus.class
 com\phone\common\constant\GenConstants.class
 com\phone\common\annotation\Excel$Type.class
-com\phone\common\utils\http\HttpUtils$1.class
 com\phone\common\utils\ExceptionUtil.class
 com\phone\common\utils\sign\Base64.class

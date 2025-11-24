@@ -10,16 +10,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="createTime"    column="create_time"    />
         <result property="updateTime"    column="update_time"    />
         <result property="jsonString"    column="json_string"    />
+        <result property="devId"    column="dev_id"    />
     </resultMap>
 
     <sql id="selectAccountVo">
-        select id, douyin_id, create_time,  update_time, json_string from account
+        select id, douyin_id, dev_id, create_time,  update_time, json_string from account
     </sql>
 
     <select id="selectAccountList" parameterType="Account" resultMap="AccountResult">
         <include refid="selectAccountVo"/>
         <where>  
             <if test="douyinId != null  and douyinId != ''"> and douyin_id = #{douyinId}</if>
+            <if test="devId != null  and devId != ''"> and dev_id = #{devId}</if>
             <if test="jsonString != null  and jsonString != ''"> and json_string = #{jsonString}</if>
         </where>
     </select>
@@ -38,11 +40,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into account
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="douyinId != null and douyinId != ''">douyin_id,</if>
+            <if test="devId != null and devId != ''">dev_id,</if>
             <if test="createTime != null">create_time,</if>
             <if test="jsonString != null">json_string,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="douyinId != null and douyinId != ''">#{douyinId},</if>
+            <if test="devId != null and devId != ''">#{devId},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="jsonString != null">#{jsonString},</if>
          </trim>

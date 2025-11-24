@@ -1,6 +1,7 @@
 com\phone\module\domain\Device.class
 com\phone\module\service\IStrategyLogService.class
 com\phone\adb\AccountInfoFetcher.class
+com\phone\adb\TextCleaner.class
 com\phone\module\controller\TaskLogController.class
 com\phone\module\controller\AccountController.class
 com\phone\module\utils\ModuleFilter.class
@@ -9,12 +10,14 @@ com\phone\module\controller\DeviceLogController.class
 com\phone\module\domain\DeviceApp.class
 com\phone\module\douyin\Main.class
 com\phone\module\controller\DeviceGroupController.class
+com\phone\module\service\impl\DouyinTaskService$1.class
 com\phone\module\mapper\DeviceCommandMapper.class
 com\phone\module\controller\TaskTemplateController.class
 com\phone\module\service\impl\DeviceLogServiceImpl.class
 com\phone\module\mapper\AccountMapper.class
 com\phone\module\domain\DeviceGroup.class
 com\phone\module\domain\DeviceLog.class
+com\phone\adb\ElementFinder.class
 com\phone\module\domain\TaskTemplate.class
 com\phone\module\douyin\DouyinApiBase.class
 com\phone\module\douyin\DouyinApiClient.class
@@ -37,6 +40,7 @@ com\phone\module\utils\UUIDTypeHandler.class
 com\phone\module\mapper\StrategyLogMapper.class
 com\phone\module\mapper\DeviceGroupMapper.class
 com\phone\module\service\IDeviceService.class
+com\phone\module\service\impl\DouyinTaskService.class
 com\phone\module\service\IAccountService.class
 com\phone\module\domain\StrategyTemplate.class
 com\phone\module\service\IDeviceAppService.class
@@ -54,6 +58,7 @@ com\phone\module\mapper\DeviceAppMapper.class
 com\phone\module\service\impl\StrategyLogServiceImpl.class
 com\phone\module\service\impl\StrategyTemplateServiceImpl.class
 com\phone\module\service\impl\TaskTemplateServiceImpl.class
+com\phone\adb\XPathRegistry.class
 com\phone\module\controller\AccountFolderReader.class
 com\phone\module\service\impl\DeviceAppServiceImpl.class
 com\phone\adb\DouyinCrawler.class

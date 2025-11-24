@@ -28,7 +28,7 @@ public class ModuleFilter implements Filter {
     private static final String[] WHITE_IPS = {
             "127.0.0.1",
             "192.168.0.27",
-            "192.168.150.147",
+            "192.168.150.141",
             "192.168.150.183",
 //            "192.168.1.141"
             "192.168.1.155"

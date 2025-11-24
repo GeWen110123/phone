@@ -39,8 +39,17 @@ public class Account extends BaseEntity
 } */
 
     private String jsonString;
+    private String devId;
 
-    public void setId(Long id) 
+    public String getDevId() {
+        return devId;
+    }
+
+    public void setDevId(String devId) {
+        this.devId = devId;
+    }
+
+    public void setId(Long id)
     {
         this.id = id;
     }
