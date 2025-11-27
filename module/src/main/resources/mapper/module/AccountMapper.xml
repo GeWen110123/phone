@@ -55,7 +55,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateAccount" parameterType="Account">
         update account
         <trim prefix="SET" suffixOverrides=",">
-            <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="jsonString != null">json_string = #{jsonString},</if>
         </trim>

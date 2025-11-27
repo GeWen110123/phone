@@ -1,16 +1,19 @@
-
-
 package com.phone.module.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.phone.adb.DouyinCrawler;
 import com.phone.module.domain.Account;
 import com.phone.module.service.IAccountService;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-//import io.appium.java_client.android.options.UiAutomator2Options;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,11 +21,6 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Logger;
-
-
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-
 
 @Service
 public class DouyinTaskService {
@@ -35,78 +33,98 @@ public class DouyinTaskService {
     private final ExecutorService dbExecutor = Executors.newFixedThreadPool(3);
 
     // =====================================================
-    // ⭐ 重写 runTask —— 使用匿名内部类执行爬虫逻辑
+    // ⭐ 改写 runTask —— 自动检测设备在线和授权状态
     // =====================================================
+    @Async
     public void runTask(String devId, String accountName) {
 
-        Map<String, Object> info = new Object() {
+        // 先检查设备是否在线且授权
+        if (!isDeviceOnline(devId)) {
+            logger.warning("设备未在线或未授权: '" + devId + "'");
+            return;
+        }
 
-            public Map<String, Object> crawl() {
-                Map<String, Object> result = new HashMap<>();
-                AndroidDriver driver = null;
+        Map<String, Object> result = new HashMap<>();
+        AndroidDriver<MobileElement> driver = null;
 
-                try {
-                    DesiredCapabilities capabilities = new DesiredCapabilities();
-                    capabilities.setCapability("platformName", "Android");
-                    capabilities.setCapability("udid", devId);
-                    capabilities.setCapability("noReset", true);
-                    capabilities.setCapability("appPackage", "com.ss.android.ugc.aweme"); // 抖音包名
-                    capabilities.setCapability("appActivity", ".main.MainActivity"); // 启动Activity
+        try {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("platformName", "Android");
+            capabilities.setCapability("deviceName", "Android Device");
+            capabilities.setCapability("udid", devId);
+            capabilities.setCapability("appPackage", "com.ss.android.ugc.aweme");
+            capabilities.setCapability("appActivity", ".main.MainActivity");
+            capabilities.setCapability("noReset", true);
 
-                    driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
-                    DouyinCrawler crawler = new DouyinCrawler(driver);
+            DouyinCrawler crawler = new DouyinCrawler(driver);
 
-                    if (!crawler.startDouyin()) return result;
-                    if (!crawler.searchAndEnterAccount(accountName)) return result;
-
-                    result = crawler.fetchAccountInfo();
-
-                    return result;
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return result;
-                } finally {
-                    if (driver != null) driver.quit();
-                }
+            if (!crawler.startDouyin()) {
+                logger.warning("启动抖音失败: " + accountName);
+            } else if (!crawler.searchAndEnterAccount(accountName)) {
+                logger.warning("进入账号失败: " + accountName);
+            } else {
+                result = crawler.fetchAccountInfo();
             }
+            // 写入数据库
+            storeAccountAsync(devId, accountName, result);
 
-        }.crawl();
+        } catch (Exception e) {
+            logger.severe("爬取账号信息异常: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            if (driver != null) driver.quit();
+        }
 
-        storeAccountAsync(devId, accountName, info);
+
     }
 
+    // =====================================================
+    // 检查设备是否在线且授权
+    // =====================================================
+    private boolean isDeviceOnline(String devId) {
+        try {
+            Process p = Runtime.getRuntime().exec("C:\\Android\\sdk\\platform-tools\\adb.exe devices");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if (line.startsWith(devId) && line.endsWith("device")) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            logger.severe("检查设备状态失败: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     // =====================================================
-    // 数据库写入（保持不变）
+    // 数据库写入（异步）
     // =====================================================
     private void storeAccountAsync(String devId, String accountName, Map<String, Object> resultMap) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            String json = mapper.writeValueAsString(resultMap);
 
-        dbExecutor.submit(() -> {
+            Account account = new Account();
+            account.setDevId(devId);
+            account.setDouyinId(accountName);
+            account.setJsonString(json);
+            account.setCreateTime(new Date());
             try {
-                ObjectMapper mapper = new ObjectMapper();
-                String json = mapper.writeValueAsString(resultMap);
-
-                Account account = new Account();
-                account.setDevId(devId);
-                account.setDouyinId(accountName);
-                account.setJsonString(json);
+                accountService.insertAccount(account);
+            } catch (Exception e) {
                 account.setUpdateTime(new Date());
-
-                try {
-                    accountService.insertAccount(account);
-                } catch (Exception e) {
-                    accountService.updateAccount(account);
-                }
-
-                logger.info("账号数据写入成功: " + accountName);
-
-            } catch (Exception ex) {
-                logger.severe("DB 写入失败: " + ex.getMessage());
+                accountService.updateAccount(account);
             }
-        });
+
+            logger.info("账号数据写入成功: " + accountName);
+
+        } catch (Exception ex) {
+            logger.severe("DB 写入失败: " + ex.getMessage());
+        }
     }
 }
-
-

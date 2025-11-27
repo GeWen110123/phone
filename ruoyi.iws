@@ -23,9 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91603825-72bf-4802-ae2d-763b1daebf3e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DouyinTaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataScope.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataScope.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataSource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$Align.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$Align.class" afterDir="false" />
@@ -117,7 +117,7 @@
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/html/EscapeUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/html/EscapeUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/html/HTMLFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/html/HTMLFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$TrustAnyHostnameVerifier.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$TrustAnyHostnameVerifier.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$TrustAnyTrustManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils$TrustAnyTrustManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/http/HttpUtils.class" afterDir="false" />
@@ -135,7 +135,6 @@
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework/framework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/src/main/java/com/phone/framework/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataScopeAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataScopeAspect.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataSourceAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataSourceAspect.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/LogAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/LogAspect.class" afterDir="false" />
@@ -185,9 +184,7 @@
       <change beforePath="$PROJECT_DIR$/module/module.iml" beforeDir="false" afterPath="$PROJECT_DIR$/module/module.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/DouyinCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/DouyinCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/domain/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/ModuleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/utils/ModuleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DouyinTaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DouyinTaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/src/main/resources/mapper/module/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/AccountMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/adb/AccountInfoFetcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/AccountInfoFetcher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/adb/DouyinCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/DouyinCrawler.class" afterDir="false" />
@@ -517,12 +514,12 @@
     </option>
     <option name="importingSettings">
       <MavenImportingSettings>
-        <option name="jdkForImporter" value="1.8" />
+        <option name="jdkForImporter" value="17" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="MavenRunner">
-    <option name="jreName" value="1.8" />
+    <option name="jreName" value="17" />
   </component>
   <component name="PerforceConfiguration">
     <option name="PORT" value="magic:1666" />
@@ -565,28 +562,28 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;36212a898d444543ded336beff23b746&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.51839083",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "spring.configuration.checksum": "36212a898d444543ded336beff23b746",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -605,11 +602,13 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn dependency:tree | findstr guava" />
-      <command value="mvn dependency:tree" />
       <command value="mvn clean compile" />
       <command value="mvn clean install" />
       <command value="mvn clean" />
       <command value="mvn dependency:purge-local-repository" />
+      <command value="mvn dependency:tree | grep selenium" />
+      <command value="mvn dependency:tree | Select-String selenium" />
+      <command value="mvn dependency:tree" />
       <command value="mvn clean install -U" />
     </option>
   </component>
@@ -627,6 +626,7 @@
     <configuration name="DouyinCrawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.phone.adb.DouyinCrawler" />
       <module name="module" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.phone.adb.*" />
@@ -735,6 +735,9 @@
       <workItem from="1762998910142" duration="3202000" />
       <workItem from="1763629142796" duration="1839000" />
       <workItem from="1763634196080" duration="24517000" />
+      <workItem from="1763954034140" duration="1626000" />
+      <workItem from="1763955955438" duration="786000" />
+      <workItem from="1763956758994" duration="14069000" />
     </task>
     <task id="LOCAL-00001" summary="1.模块一完成，关联设备信息，链路信息展示和排序。 &#10;2.访问日志信息完成， 添加MyBatis的XML映射文件，定义针对clickHouse数据库实体&#10;3.完成近一个月记录，按照时间排序以及一级标签、二级标签、网站名筛选">
       <created>1717410516643</created>
