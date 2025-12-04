@@ -23,9 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91603825-72bf-4802-ae2d-763b1daebf3e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/admin/admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/AccountInfoFetcherVoid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/VideoCommentsFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/VideoMergeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataScope.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataScope.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/DataSource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$Align.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/annotation/Excel$Align.class" afterDir="false" />
@@ -133,59 +133,11 @@
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/IdUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/IdUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID$Holder.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID$Holder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/phone/common/utils/uuid/UUID.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/framework/framework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataScopeAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataScopeAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataSourceAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/DataSourceAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/LogAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/aspectj/LogAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ApplicationConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/CaptchaConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/CaptchaConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/DruidConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/DruidConfig$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/DruidConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/DruidConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/FastJson2JsonRedisSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/FastJson2JsonRedisSerializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/FilterConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/FilterConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/KaptchaTextCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/KaptchaTextCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/MyBatisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/MyBatisConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpConfiguration$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpConfiguration$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpRetryIntercepter.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/OkHttpRetryIntercepter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/RedisConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ResourcesConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ResourcesConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ServerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ServerConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ThreadPoolConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ThreadPoolConfig$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ThreadPoolConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/ThreadPoolConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/properties/DruidProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/config/properties/DruidProperties.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/datasource/DynamicDataSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/datasource/DynamicDataSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/datasource/DynamicDataSourceContextHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/datasource/DynamicDataSourceContextHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/interceptor/RepeatSubmitInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/interceptor/RepeatSubmitInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/interceptor/impl/SameUrlDataInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/interceptor/impl/SameUrlDataInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/AsyncManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/AsyncManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/ShutdownManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/ShutdownManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/manager/factory/AsyncFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/filter/JwtAuthenticationTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/filter/JwtAuthenticationTokenFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/handle/AuthenticationEntryPointImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/handle/AuthenticationEntryPointImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/handle/LogoutSuccessHandlerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/security/handle/LogoutSuccessHandlerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Cpu.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Cpu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Jvm.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Jvm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Mem.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Mem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Sys.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/Sys.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/SysFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/domain/server/SysFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/exception/GlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/PermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/PermissionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysLoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysLoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysPermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysPermissionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysRegisterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/SysRegisterService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/TokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/TokenService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/classes/com/phone/framework/web/service/UserDetailsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/module.iml" beforeDir="false" afterPath="$PROJECT_DIR$/module/module.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/framework/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/AccountInfoFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/AccountInfoFetcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/DouyinCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/adb/DouyinCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DouyinTaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/java/com/phone/module/service/impl/DouyinTaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/src/main/resources/mapper/module/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module/src/main/resources/mapper/module/AccountMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/adb/AccountInfoFetcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/AccountInfoFetcher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/adb/DouyinCrawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/DouyinCrawler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/adb/ElementFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/adb/ElementFinder.class" afterDir="false" />
@@ -253,12 +205,8 @@
       <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/UUIDTypeHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/UUIDTypeHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/redisTg.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/redisTg.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/sha256Hmac.class" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/com/phone/module/utils/sha256Hmac.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/target/classes/mapper/module/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/classes/mapper/module/AccountMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/module/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi.iws" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/system/system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysLogininfor.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysLogininfor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysNotice.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysNotice.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysOperLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/domain/SysOperLog.class" afterDir="false" />
@@ -306,6 +254,8 @@
       <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysRoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysRoleServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysUserOnlineServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysUserOnlineServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/classes/com/phone/system/service/impl/SysUserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/system/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -562,28 +512,29 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.51839083",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "spring.configuration.checksum": "36212a898d444543ded336beff23b746",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/douyin_essential_tools&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.51839083&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;36212a898d444543ded336beff23b746&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -612,7 +563,7 @@
       <command value="mvn clean install -U" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RuoYiApplication ">
+  <component name="RunManager" selected="Application.DouyinCrawler">
     <configuration selected="false" default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -625,6 +576,19 @@
     </configuration>
     <configuration name="DouyinCrawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.phone.adb.DouyinCrawler" />
+      <module name="module" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.phone.adb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoMergeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.phone.adb.VideoMergeTest" />
       <module name="module" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -668,13 +632,15 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.VideoMergeTest" />
       <item itemvalue="Application.DouyinCrawler" />
       <item itemvalue="Spring Boot.RuoYiApplication " />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.RuoYiApplication " />
         <item itemvalue="Application.DouyinCrawler" />
+        <item itemvalue="Application.VideoMergeTest" />
+        <item itemvalue="Spring Boot.RuoYiApplication " />
       </list>
     </recent_temporary>
   </component>
@@ -737,7 +703,9 @@
       <workItem from="1763634196080" duration="24517000" />
       <workItem from="1763954034140" duration="1626000" />
       <workItem from="1763955955438" duration="786000" />
-      <workItem from="1763956758994" duration="14069000" />
+      <workItem from="1763956758994" duration="40232000" />
+      <workItem from="1764297793652" duration="11593000" />
+      <workItem from="1764725544783" duration="37805000" />
     </task>
     <task id="LOCAL-00001" summary="1.模块一完成，关联设备信息，链路信息展示和排序。 &#10;2.访问日志信息完成， 添加MyBatis的XML映射文件，定义针对clickHouse数据库实体&#10;3.完成近一个月记录，按照时间排序以及一级标签、二级标签、网站名筛选">
       <created>1717410516643</created>
@@ -865,7 +833,14 @@
       <option name="project" value="LOCAL" />
       <updated>1763707070671</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="配置完成  解决相关冲突问题">
+      <created>1764223073191</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1764223073192</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -910,7 +885,8 @@
     <MESSAGE value="超时时间修改" />
     <MESSAGE value="1.高级检索改为后台运行，保存相关samc数据到表中&#10;2.添加上次执行时间和执行时长字段" />
     <MESSAGE value="项目上传" />
-    <option name="LAST_COMMIT_MESSAGE" value="项目上传" />
+    <MESSAGE value="配置完成  解决相关冲突问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="配置完成  解决相关冲突问题" />
   </component>
   <component name="VssConfiguration">
     <CheckoutOptions>
@@ -974,5 +950,10 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ruoyi$DouyinCrawler.ic" NAME="DouyinCrawler Coverage Results" MODIFIED="1764243056307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.phone.adb.*</FILTER>
+    </SUITE>
   </component>
 </project>

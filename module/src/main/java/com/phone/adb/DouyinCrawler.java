@@ -9,13 +9,13 @@ import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class DouyinCrawler {
@@ -255,11 +255,68 @@ public class DouyinCrawler {
         }
     }
 
+//    public static void main(String[] args) {
+//        String devId = "ec86e946";
+//        String accountName = "Becarefulleea";
+//
+//        Map<String,Object> info = crawlAccount(devId, accountName);
+//        System.out.println(info);
+//    }
+
     public static void main(String[] args) {
         String devId = "ec86e946";
         String accountName = "Becarefulleea";
 
-        Map<String,Object> info = crawlAccount(devId, accountName);
-        System.out.println(info);
+        AndroidDriver<MobileElement> driver = null;
+
+        try {
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("platformName", "Android");
+            caps.setCapability("deviceName", "Android Device");
+            caps.setCapability("udid", devId);
+            caps.setCapability("appPackage", "com.ss.android.ugc.aweme");
+            caps.setCapability("appActivity", ".main.MainActivity");
+            caps.setCapability("noReset", true);
+            caps.setCapability("automationName", "UiAutomator2"); // 必填
+
+
+
+            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+
+            DouyinCrawler crawler = new DouyinCrawler(driver);
+            if (!crawler.startDouyin()) return;
+            if (!crawler.searchAndEnterAccount(accountName)) return;
+
+            // ====== 调用 AccountInfoFetcherVoid 开始录制视频和抓评论 ======
+            AccountInfoFetcherVoid fetcher = new AccountInfoFetcherVoid(driver);
+
+            // 开始录屏
+            System.out.println("开始录屏...");
+            driver.startRecordingScreen();
+
+            List<Map<String, Object>> allVideos = fetcher.recordAllVideosAndComments(devId);
+
+            // 停止录屏并保存
+            String base64Video = driver.stopRecordingScreen();
+            byte[] data = Base64.getDecoder().decode(base64Video);
+            String fileName = "douyin_record_" + LocalDateTime.now().toString().replace(":", "-") + ".mp4";
+            File videoFile = new File(fileName);
+            try (FileOutputStream fos = new FileOutputStream(videoFile)) {
+                fos.write(data);
+            }
+            System.out.println("录屏已保存到: " + videoFile.getAbsolutePath());
+
+            // 打印视频与评论信息
+            for (Map<String, Object> video : allVideos) {
+                System.out.println(video);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (driver != null) driver.quit();
+        }
     }
+
+
 }

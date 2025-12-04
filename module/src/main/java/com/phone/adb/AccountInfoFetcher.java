@@ -9,10 +9,14 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 public class AccountInfoFetcher {
 
+    /**
+    * 获取主页基本信息
+    * */
     private final AndroidDriver driver;
     private final String outputDir;
     private final Logger logger;
@@ -31,7 +35,7 @@ public class AccountInfoFetcher {
 
         if (!ensureDeviceConnected()) return info;
 
-        takeScreenshot("profile_screen.png");
+        takeScreenshot(UUID.randomUUID()+"profile_screen.png");
 
         info.put("nickname", getNickname());
         info.put("id", getDouyinId(info.get("nickname").toString()));
