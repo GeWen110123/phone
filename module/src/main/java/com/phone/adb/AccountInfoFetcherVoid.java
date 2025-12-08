@@ -157,7 +157,8 @@ public class AccountInfoFetcherVoid {
                 "//*[@resource-id='com.ss.android.ugc.aweme:id/feu']",
                 "//*[contains(@resource-id, 'work') or contains(@resource-id, 'video')]",
                 "//android.view.ViewGroup[contains(@resource-id, 'work')]",
-                "//*[contains(@text, '置顶')]"
+                "//*[contains(@text, '置顶')]",                                           // 原有 xpath
+                "//*[@resource-id='com.ss.android.ugc.aweme:id/container']"
         };
 
         for (String xp : xps) {
@@ -482,7 +483,7 @@ public class AccountInfoFetcherVoid {
     // ---------------------------------------------------------
     // ⭐ 主流程：录制所有视频 + 获取评论 + 截图 + 保存数据
     // ---------------------------------------------------------
-    public List<Map<String, Object>> recordAllVideosAndComments(String deviceId) {
+    public List<Map<String, Object>> recordAllVideosAndComments(String deviceId,String accountName) {
 
         logger.info("开始录制所有视频并获取评论");
 
@@ -497,10 +498,7 @@ public class AccountInfoFetcherVoid {
             logger.warning("不在个人主页");
             return allVideoData;
         }
-        if (!enterVideoList()) {
-            logger.warning("无法进入作品区");
-            return allVideoData;
-        }
+
 
         for (String xpath : WORKS_COUNT_XPATHS) {
             try {
@@ -516,7 +514,9 @@ public class AccountInfoFetcherVoid {
                             logger.info("解析到作品数量: " + maxVideos);
                             break; // 找到第一个有效的就用
                         }
-                    } catch (NumberFormatException ignored) {}
+                    } catch (NumberFormatException ignored) {
+                        logger.warning("无法解析作品数量");
+                    }
                 }
             } catch (Exception e) {
                 // 找不到元素就跳到下一个 xpath
@@ -530,7 +530,13 @@ public class AccountInfoFetcherVoid {
 
         logger.info("总共需要处理的视频数量: " + maxVideos);
 
+        if (!enterVideoList()) {
+            logger.warning("无法进入作品区");
+            return allVideoData;
+        }
+
         while (index < maxVideos) {
+//        while (index < 1) {
             try {
                 // 确保最新 PageSource
                 driver.getPageSource();
@@ -556,19 +562,20 @@ public class AccountInfoFetcherVoid {
                 video.put("share_count", getVideoStat("分享"));
                 video.put("collect_count", getVideoStat("收藏"));
 
-                // ◆ 线程版解析视频时长（增加重试，确保获取到）
+//                 ◆ 线程版解析视频时长（增加重试，确保获取到）
                 int duration = 0;
                 int maxRetry = 5;
                 for (int attempt = 1; attempt <= maxRetry; attempt++) {
                     duration = extractVideoDuration(deviceId);
+                    Thread.sleep(1000);
                     if (duration > 0) break;
                     logger.info("⚠️ 视频时长获取失败，重试 " + attempt + "/" + maxRetry);
                     Thread.sleep(500); // 等待0.5秒再试
                 }
-                if (duration <= 0) duration = 50; // 防止解析失败时，给默认50秒
+                if (duration <= 0) duration = 15; // 防止解析失败时，给默认50秒
                 logger.info("🎬 解析到视频时长: " + duration + " 秒");
 
-                // ◆ 录制视频
+//                // ◆ 录制视频
                 String videoPath = recordVideoToFile(index, duration, deviceId);
                 video.put("video_path", videoPath);
 
@@ -576,17 +583,23 @@ public class AccountInfoFetcherVoid {
                 String screenshotPath = saveScreenshot(index);
                 video.put("screenshot_path", screenshotPath);
 
-                // ◆ 评论
-                if (openComments()) {
-                    List<String> comments = getAllComments();
-                    video.put("comments", comments);
-                    video.put("comments_count_actual", comments.size());
-                    closeComments();
-                } else {
-                    video.put("comments", Collections.emptyList());
-                    video.put("comments_count_actual", 0);
-                }
 
+
+                // 指定保存评论的目录
+                String videosDir = "D:\\douyin_output\\videosDir";
+
+                // 初始化抓取器
+                VideoCommentsFetcher fetcher = new VideoCommentsFetcher(driver);
+
+// 抓取当前视频的全部评论（主评论 + 子回复）
+                List<Map<String, Object>> comments = fetcher.fetchAllComments(1, videosDir);
+
+// 打印结果
+                for (Map<String, Object> c : comments) {
+                    System.out.println(c);
+                }
+                video.put("comments", comments);
+                video.put("comments_count_actual", comments.size());
                 allVideoData.add(video);
                 logger.info("第 " + (index + 1) + " 个视频处理完成");
 

@@ -265,7 +265,14 @@ public class DouyinCrawler {
 
     public static void main(String[] args) {
         String devId = "ec86e946";
-        String accountName = "Becarefulleea";
+
+        // 想抓多个账号，填在这里
+        String[] accountNames = new String[]{
+                "40691348894",
+                "EQLQ",
+                "37912855169",
+                "chunbuwanyes"
+        };
 
         AndroidDriver<MobileElement> driver = null;
 
@@ -279,36 +286,35 @@ public class DouyinCrawler {
             caps.setCapability("noReset", true);
             caps.setCapability("automationName", "UiAutomator2"); // 必填
 
-
-
             driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 
             DouyinCrawler crawler = new DouyinCrawler(driver);
+
             if (!crawler.startDouyin()) return;
-            if (!crawler.searchAndEnterAccount(accountName)) return;
 
-            // ====== 调用 AccountInfoFetcherVoid 开始录制视频和抓评论 ======
-            AccountInfoFetcherVoid fetcher = new AccountInfoFetcherVoid(driver);
+            for (String accountName : accountNames) {
 
-            // 开始录屏
-            System.out.println("开始录屏...");
-            driver.startRecordingScreen();
+                System.out.println("\n==============================");
+                System.out.println("开始处理账号: " + accountName);
+                System.out.println("==============================");
 
-            List<Map<String, Object>> allVideos = fetcher.recordAllVideosAndComments(devId);
+                if (!crawler.searchAndEnterAccount(accountName)) {
+                    System.out.println("❌ 无法进入账号: " + accountName + "，跳过");
+                    continue;
+                }
 
-            // 停止录屏并保存
-            String base64Video = driver.stopRecordingScreen();
-            byte[] data = Base64.getDecoder().decode(base64Video);
-            String fileName = "douyin_record_" + LocalDateTime.now().toString().replace(":", "-") + ".mp4";
-            File videoFile = new File(fileName);
-            try (FileOutputStream fos = new FileOutputStream(videoFile)) {
-                fos.write(data);
-            }
-            System.out.println("录屏已保存到: " + videoFile.getAbsolutePath());
+                AccountInfoFetcherVoid fetcher = new AccountInfoFetcherVoid(driver);
 
-            // 打印视频与评论信息
-            for (Map<String, Object> video : allVideos) {
-                System.out.println(video);
+                // 开始录屏
+                System.out.println("开始录屏...");
+                driver.startRecordingScreen();
+
+                List<Map<String, Object>> allVideos = fetcher.recordAllVideosAndComments(devId, accountName);
+
+                // 你需要的话也可以打印
+                // allVideos.forEach(System.out::println);
+
+                System.out.println("⭐ 账号完成: " + accountName);
             }
 
         } catch (Exception e) {
