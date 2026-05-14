@@ -2,6 +2,7 @@ package com.phone.module.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.phone.common.annotation.Log;
 import com.phone.common.core.controller.BaseController;
 import com.phone.common.core.domain.AjaxResult;
@@ -76,7 +77,7 @@ public class VideoController extends BaseController {
     private IVideoTagsService videoTagsService;
 
     @GetMapping("/getAccount")
-    public AjaxResult getAccount(Video video) {
+    public AjaxResult getAccount(Video video) throws JsonProcessingException {
         AjaxResult ajax = AjaxResult.success();
         Account account = new Account();
         account.setDouyinId(video.getDouyinId());
@@ -84,6 +85,49 @@ public class VideoController extends BaseController {
         if (lista.size() > 0) {
             account = lista.get(0);
             account.setCounts(accountContentService.selectAccountContentCountSum(account.getDouyinId()));
+        }else {
+
+            Comment comment = new Comment();
+            comment.setUserUid(video.getDouyinId());
+
+            List<Comment> listC = commentService.selectCommentList(comment);
+            if (listC.size() > 0) {
+                comment = listC.get(0);
+
+                account.setDouyinId(comment.getUserUid());
+
+
+// 2. 创建 JSON，严格使用你提供的原始字段名（下划线格式）
+                ObjectMapper mapper = new ObjectMapper();
+                ObjectNode json = mapper.createObjectNode();
+
+// ==============================
+// 【严格对应你给的JSON原始字段名】
+// ==============================
+                json.put("id",           comment.getUserUid());     // 用户UID → id
+                json.put("nickname",     comment.getNickname());    // 昵称
+                json.put("gender",       comment.getGender());      // 性别
+                json.put("age",          comment.getAge());         // 年龄
+                json.put("real_name",    comment.getRealName());    // 真实姓名
+                json.put("signature",    comment.getSignature());   // 签名
+                json.put("fans_count",   comment.getFansCount());   // 粉丝数
+                json.put("follow_count", comment.getFollowCount()); // 关注数
+                json.put("likes_count",  comment.getLikesCount());  // 获赞数
+                json.put("works_count",  comment.getWorksCount());  // 作品数
+                json.put("profile_text", comment.getProfileText()); // 个人简介
+                json.put("ip_location",  comment.getIpLocation());  // IP归属地
+                json.put("region",       comment.getRegion());      // 地区
+                json.put("touxiang",     comment.getTouxiang());    // 头像地址
+                json.put("zhuye",        comment.getZhuye());       // 主页截图
+
+
+//// 3. 转成 JSON 字符串
+//                String jsonString = mapper.writeValueAsString(json);
+
+// 4. 存入 account
+                account.setJsonString(json.toString());
+
+            }
         }
 
 //        ==============================================

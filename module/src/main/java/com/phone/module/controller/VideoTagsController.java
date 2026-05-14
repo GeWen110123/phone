@@ -105,7 +105,8 @@ public class VideoTagsController extends BaseController {
     @Log(title = "VideoTags", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody VideoTags videoTags) {
-        String douyinId = videoTags.getDouyinId();
+//        String douyinId = videoTags.getDouyinId();
+        String douyinId = StringUtils.isNotBlank(videoTags.getUserId()) ? videoTags.getUserId() : videoTags.getDouyinId();
 // 转为 List<String>
         List<String> douyinIdList = Arrays.stream(douyinId.split(","))
                 .map(String::trim)     // 去空格
@@ -157,6 +158,8 @@ public class VideoTagsController extends BaseController {
     public AjaxResult edit(@RequestBody VideoTags videoTags) {
         return toAjax(videoTagsService.updateVideoTags(videoTags));
     }
+
+
     @Autowired
     private IVideoTaskService videoTaskService;
     /**

@@ -95,14 +95,15 @@ public class ScheduledTask {
      */
     @Scheduled(cron = "0 */3 * * * ?")
     private void douyinTasks() throws JsonProcessingException {
-
-        List<VideoTags> list = videoTagsService.selectVideoTagsList(new VideoTags());
+        VideoTags videoTags = new VideoTags();
+        videoTags.setStatus("0");
+        List<VideoTags> list = videoTagsService.selectVideoTagsListASC(videoTags);
 
         for (VideoTags tags : list) {
             if (!"0".equals(tags.getStatus())) {
                 continue;
             }
-            if (tags.getRunNum()>=15){
+            if (tags.getRunNum()>=30){
                 // 标记为完成状态
                 tags.setStatus("2");
                 videoTagsService.updateVideoTags(tags);

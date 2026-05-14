@@ -43,6 +43,10 @@ public class VideoTagsServiceImpl implements IVideoTagsService
     public List<VideoTags> selectVideoTagsList(VideoTags videoTags)
     {
         return videoTagsMapper.selectVideoTagsList(videoTags);
+    }    @Override
+    public List<VideoTags> selectVideoTagsListASC(VideoTags videoTags)
+    {
+        return videoTagsMapper.selectVideoTagsListASC(videoTags);
     }
 
     /**

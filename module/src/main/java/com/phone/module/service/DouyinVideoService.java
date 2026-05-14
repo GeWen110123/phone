@@ -104,10 +104,12 @@ public class DouyinVideoService {
                     runLog.setRuningDetail("完成对地址"+tags.getDouyinId()+"数据获取");
                     tags.setStatus("2");
                 }else {
-                    tags.setStatus("3");
+//                   如果地址存在问题 进行修改为未执行状态  继续执行
+                    tags.setStatus("0");
                     runLog.setRuningDetail(tags.getDouyinId()+"数据获取结束，存在异常，等待再次处理");
                 }
             } else {
+                count =getUserWorksCount(account.getJsonString());
                 runLog.setType("人员");
                 Video v = new Video();
                 v.setDouyinId(accountName);
@@ -122,7 +124,11 @@ public class DouyinVideoService {
 
 
         }else {
-            tags.setStatus("3");
+            if (tags.getTags().contains("地址")) {
+                tags.setStatus("0");
+            }else {
+                tags.setStatus("3");
+            }
             runLog.setType("异常");
             runLog.setRuningDetail(tags.getDouyinId()+"数据获取结束，存在异常，等待再次处理");
             runLogService.insertRunLog(runLog);
@@ -171,8 +177,40 @@ public class DouyinVideoService {
             if (worksText.contains("打卡")) {
                 worksCount = worksCount / 10;
             }else {
-                worksCount = worksCount / 30;
+                worksCount = worksCount / 10;
             }
+
+            return worksCount;
+
+        } catch (Exception e) {
+            logger.warning("解析 works_count 失败: " + e.getMessage());
+            return 0;
+        }
+    }
+    public static int getUserWorksCount(String jsonString) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, Object> map = mapper.readValue(
+                    jsonString,
+                    new TypeReference<Map<String, Object>>() {}
+            );
+
+            // ① 先拿 works_count
+            int worksCount = Optional.ofNullable(map.get("works_count"))
+                    .map(Object::toString)
+                    .map(Integer::parseInt)
+                    .orElse(0);
+
+//            // ② 再看 works 文本是不是“打卡”类型
+//            String worksText = Optional.ofNullable(map.get("works"))
+//                    .map(Object::toString)
+//                    .orElse("");
+//
+//            if (worksText.contains("打卡")) {
+//                worksCount = worksCount / 10;
+//            }else {
+//                worksCount = worksCount / 30;
+//            }
 
             return worksCount;
 
@@ -212,36 +250,49 @@ public class DouyinVideoService {
 
         try {
             DesiredCapabilities caps = new DesiredCapabilities();
+
+// 基础设备绑定（只写一次，不重复）
             caps.setCapability("platformName", "Android");
             caps.setCapability("deviceName", devId);
             caps.setCapability("udid", devId);
+
+// 抖音包名与启动页（正确官方）
             caps.setCapability("appPackage", "com.ss.android.ugc.aweme");
             caps.setCapability("appActivity", "com.ss.android.ugc.aweme.splash.SplashActivity");
+
+// 核心：不重置、保登录
             caps.setCapability("noReset", true);
+            caps.setCapability("dontStopAppOnReset", true);
+
+// 驱动引擎（唯一）
             caps.setCapability("automationName", "UiAutomator2");
 
-// ========== 终极修复：彻底绕过导致socket中断的检测步骤 ==========
-// 1. 完全跳过设备信息收集（包括getDevicePixelRatio）
-            caps.setCapability("skipDeviceInfo", true);
-            caps.setCapability("skipGetDevicePixelRatio", true);
-            caps.setCapability("skipLogcatCapture", true);
-            caps.setCapability("skipServerInstallation", true); // 跳过UIA2服务重装
-// 2. 协议强制降级（匹配Appium 1.22.3 + Selenium 3.141）
-            caps.setCapability("automationProtocol", "JSONWP");
-            caps.setCapability("jsonwpCompatMode", true);
-// 3. 端口隔离（每个设备独占端口，避免冲突）
-            caps.setCapability("systemPort", 8201 + Integer.parseInt(devId.substring(devId.length()-2)) % 10); // 动态端口
-            caps.setCapability("uiautomator2ServerPort", 6790);
-// 4. 超时配置拉满
-            caps.setCapability("uiautomator2ServerLaunchTimeout", 300000);
-            caps.setCapability("uiautomator2ServerInstallTimeout", 300000);
-            caps.setCapability("adbExecTimeout", 30000);
-            caps.setCapability("newCommandTimeout", 600);
-//// 5. 禁用所有非必要检测
+// ==================== 【极速核心配置】 ====================
+// 1. 端口正确配置（不搞反！PC端systemPort，设备端固定6790）
+            caps.setCapability("systemPort", 8200);        // PC端口，多开设备要递增：8201/8202...
+            caps.setCapability("uiautomator2ServerPort", 6790); // 设备固定端口
+
+// 2. 协议（Appium2 + 稳定不卡顿）
+            caps.setCapability("automationProtocol", "UiAutomator2");
+
+// 3. 合理超时（不卡死、不等待）
+            caps.setCapability("uiautomator2ServerLaunchTimeout", 30000);
+            caps.setCapability("uiautomator2ServerInstallTimeout", 30000);
+            caps.setCapability("adbExecTimeout", 10000);
+            caps.setCapability("newCommandTimeout", 60);
+
+// 4. 关闭卡顿来源：动画、弹窗、监听
             caps.setCapability("disableWindowAnimation", true);
-            caps.setCapability("disableAndroidWatchers", true);
-            caps.setCapability("skipUnlock", true);
-            caps.setCapability("dontStopAppOnReset", true);
+//            caps.setCapability("ignoreUnimportantViews", true);  // 加速页面解析
+            caps.setCapability("waitForIdleTimeout", 500);       // 最重要：减少等待页面静止
+            caps.setCapability("waitForAppLaunch", 5);            // 不傻等
+
+// 5. 关闭键盘、权限弹窗干扰
+            caps.setCapability("unicodeKeyboard", true);
+            caps.setCapability("resetKeyboard", true);
+            caps.setCapability("autoGrantPermissions", true);     // 自动允许权限，不卡顿
+
+//            caps.setCapability("dontStopAppOnReset", true);
 
 //            caps.setCapability("ignoreUnimportantViews", true);
 

@@ -26,6 +26,7 @@ public interface VideoTagsMapper
      * @return VideoTags集合
      */
     public List<VideoTags> selectVideoTagsList(VideoTags videoTags);
+    public List<VideoTags> selectVideoTagsListASC(VideoTags videoTags);
 
     /**
      * 新增VideoTags

@@ -134,7 +134,12 @@ public class CommentController extends BaseController
     @PutMapping
     public AjaxResult edit(@RequestBody Comment comment)
     {
-        return toAjax(commentService.updateCommentByUserId(comment));
+        try{
+          commentService.updateCommentByUserId(comment);
+        }catch (Exception e){
+        }
+        return AjaxResult.success();
+
     }
 
     /**

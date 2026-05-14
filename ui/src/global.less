@@ -1,0 +1,302 @@
+@import '~ant-design-vue/es/style/themes/default.less';
+
+
+@font-face {
+  font-family: 's1';
+  src: url('./assets/font9.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body,
+#app,
+#root {
+  height: 100%;
+  font-weight: 700;
+  // font-weight: normal;
+  font-style: normal;
+
+}
+
+// html{-webkit-filter: grayscale(100%);}
+pre {
+  white-space: pre-line;
+  /* 保留空格和换行符，但允许文本换行 */
+  word-wrap: break-word;
+  /* 在单词过长时进行换行 */
+
+}
+
+pre span {
+  display: inline;
+}
+
+.center-tooltip {
+  vertical-align: baseline !important;
+
+}
+
+.custom-label label::after {
+  content: '';
+  color: red;
+}
+
+.flex_1 {
+  display: flex;
+  align-items: center;
+}
+
+/* Webkit浏览器（Chrome、Safari） */
+::-webkit-scrollbar {
+  height: 6px;
+  /* 设置竖向滚动条高度 */
+  width: 6px;
+  /* 设置横向滚动条宽度 */
+}
+
+.bottom_border {
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 10px;
+}
+
+.margin_1 {
+  margin-left: 10px;
+}
+
+.margin_2 {
+  margin-left: 20px;
+}
+
+.margin_r_5 {
+  margin-right: 5px;
+}
+
+.cur {
+  cursor: pointer;
+}
+
+.docx p,
+p.docx_1 span {
+  font-size: 7.5pt !important;
+}
+
+p.docx_4 span {
+  font-size: 9pt !important;
+
+}
+
+.font_w {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.ant-card-head-title {
+  font-weight: bold;
+
+}
+
+.color_1 {
+  color: #F7C11A;
+}
+
+.color_2 {
+  color: #d60707d5;
+}
+
+.iniline {
+  display: ruby;
+}
+
+.color_3 {
+  color: #077eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999;
+  /* 设置滚动条滑块颜色 */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  /* 设置滚动条背景颜色 */
+}
+
+/* Firefox浏览器 */
+::-moz-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+
+::-moz-scrollbar-thumb {
+  background-color: #999;
+}
+
+::-moz-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* IE浏览器及部分移动端浏览器 */
+::-ms-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+::-ms-scrollbar-thumb {
+  background-color: #999;
+}
+
+::-ms-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.iconBs {
+  width: 24px;
+  height: 24px;
+  margin: 0 2px;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-dropdown,
+.ant-select-dropdown,
+.ant-picker-dropdown {
+  animation-duration: 0s !important;
+}
+
+.ant-layout.layout-basic {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.ant-pro-page-header-wrap-page-header-warp {
+  background-color: #F0F2F5;
+}
+
+.ant-pro-page-header-wrap-children-content {
+  margin: -4px 24px 0 24px;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.ant-pro-top-nav-header-logo {
+  width: 266px;
+  margin-left: 20px;
+}
+
+// 数据列表 样式
+.table-alert {
+  margin-bottom: 16px;
+}
+
+// 数据列表 操作
+.table-operator {
+  margin-bottom: 18px;
+
+  button {
+    margin-right: 8px;
+  }
+}
+
+// 数据列表 搜索条件
+.table-page-search-wrapper {
+
+  .ant-form-inline {
+    .ant-form-item {
+      display: flex;
+      margin-bottom: 24px;
+      margin-right: 0;
+
+      .ant-form-item-control-wrapper {
+        flex: 1 1;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      >.ant-form-item-label {
+        line-height: 32px;
+        padding-right: 8px;
+        width: auto;
+      }
+
+      .ant-form-item-control {
+        height: 32px;
+        line-height: 32px;
+      }
+    }
+  }
+
+  .table-page-search-submitButtons {
+    display: block;
+    margin-bottom: 24px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+
+    &-thead>tr,
+    &-tbody>tr {
+
+      >th,
+      >td {
+        white-space: pre;
+
+        >span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+//表格上方操作条
+.table-operations {
+  margin-bottom: 16px;
+}
+
+.table-operations>button {
+  margin-right: 8px;
+}
+
+// 详情页底部按钮
+.bottom-control {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #e8e8e8;
+  padding: 10px 16px;
+  text-align: right;
+  left: 0;
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+}
+
+.ant-drawer-body {
+  padding: 24px 24px 50px 24px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footer {
+  float: right;
+}
+
+.ant-pro-top-nav-header-menu {
+  max-width: 1200px !important;
+}

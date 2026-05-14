@@ -21,6 +21,7 @@ public class Comment extends BaseEntity
     /** 视频ID */
     @Excel(name = "视频ID")
     private String uid;
+    private String douyinId;
     private String userDouyin;
 
     /** 用户UID */
@@ -100,6 +101,14 @@ public class Comment extends BaseEntity
     private String status;
 
     private Account userJson;
+
+    public String getDouyinId() {
+        return douyinId;
+    }
+
+    public void setDouyinId(String douyinId) {
+        this.douyinId = douyinId;
+    }
 
     public Account getUserJson() {
         return userJson;

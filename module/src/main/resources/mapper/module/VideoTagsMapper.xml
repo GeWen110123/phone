@@ -35,6 +35,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </where>
         ORDER BY update_time DESC
     </select>
+
+
+    <select id="selectVideoTagsListASC" parameterType="VideoTags" resultMap="VideoTagsResult">
+        <include refid="selectVideoTagsVo"/>
+        <where>
+            <if test="devId != null  and devId != ''"> and dev_id = #{devId}</if>
+            <if test="douyinId != null  and douyinId != ''"> and douyin_id = #{douyinId}</if>
+            <if test="tags != null  and tags != ''"> and tags = #{tags}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="taskId != null  and taskId != ''"> and task_id = #{taskId}</if>
+            <if test="taskName != null  and taskName != ''"> and task_name = #{taskName}</if>
+            <if test="remark != null  and remark != ''"> and remark = #{remark}</if>
+        </where>
+        ORDER BY update_time ASC
+    </select>
     
     <select id="selectVideoTagsById" parameterType="Long" resultMap="VideoTagsResult">
         <include refid="selectVideoTagsVo"/>
