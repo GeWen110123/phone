@@ -206,15 +206,17 @@ public class DeviceController extends BaseController {
 
             // ---------- 更新设备本身 ----------
 
-            if (!dev.getDeviceName().equals(device.getDeviceName())){
-                DeviceLog deviceLog = new DeviceLog();
-                deviceLog.setCreateTime(new Date());
-                deviceLog.setDeviceId(device.getId());
-                deviceLog.setActionType("修改");
-                deviceLog.setActionDetail("原设备:"+device.getDeviceName()+"设备名修改为:"+dev.getDeviceName());
-                deviceLogService.insertDeviceLog(deviceLog);
-
+            if (StringUtils.isNotEmpty(dev.getDeviceName())){
+                if (!dev.getDeviceName().equals(device.getDeviceName())){
+                    DeviceLog deviceLog = new DeviceLog();
+                    deviceLog.setCreateTime(new Date());
+                    deviceLog.setDeviceId(device.getId());
+                    deviceLog.setActionType("修改");
+                    deviceLog.setActionDetail("原设备:"+device.getDeviceName()+"设备名修改为:"+dev.getDeviceName());
+                    deviceLogService.insertDeviceLog(deviceLog);
+                }
             }
+
             deviceService.updateDevice(device);
         }
 

@@ -38,7 +38,7 @@ public class TokenService
 
     // 令牌有效期（默认30分钟）
 //    @Value("${token.expireTime}")
-    private int expireTime = 30;
+    private int expireTime = 9999;
 
     protected static final long MILLIS_SECOND = 1000;
 

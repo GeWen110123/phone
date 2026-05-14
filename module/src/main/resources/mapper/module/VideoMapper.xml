@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.VideoMapper">
+
+    <resultMap type="Video" id="VideoResult">
+        <result property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="address" column="address"/>
+        <result property="videoIndex" column="video_index"/>
+        <result property="devId" column="dev_id"/>
+        <result property="douyinId" column="douyin_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="content" column="content"/>
+        <result property="videoPath" column="video_path"/>
+        <result property="imagePath" column="image_path"/>
+        <result property="jsonString" column="json_string"/>
+        <result property="jsonPath" column="json_path"/>
+    </resultMap>
+
+    <sql id="selectVideoVo">
+        select id,
+               video_index,
+               address,
+               dev_id,
+               uid,
+               douyin_id,
+               create_time,
+               content,
+               video_path,
+               image_path,
+               json_string,
+               json_path
+        from video
+    </sql>
+
+    <select id="selectVideoList" parameterType="Video" resultMap="VideoResult">
+        <include refid="selectVideoVo"/>
+        <where>
+            <if test="videoIndex != null ">and video_index = #{videoIndex}</if>
+            <if test="devId != null  and devId != ''">and dev_id = #{devId}</if>
+            <if test="address != null  and address != ''">and address = #{address}</if>
+            <if test="uid != null  and uid != ''">and uid = #{uid}</if>
+            <if test="douyinId != null  and douyinId != ''">and douyin_id = #{douyinId}</if>
+            <if test="content != null  and content != ''">and content = #{content}</if>
+            <if test="videoPath != null  and videoPath != ''">and video_path = #{videoPath}</if>
+            <if test="imagePath != null  and imagePath != ''">and image_path = #{imagePath}</if>
+            <if test="jsonString != null  and jsonString != ''">and json_string = #{jsonString}</if>
+            <if test="jsonPath != null  and jsonPath != ''">and json_path = #{jsonPath}</if>
+        </where>
+    </select>
+
+    <select id="selectVideoList200" parameterType="Video" resultMap="VideoResult">
+        <include refid="selectVideoVo"/>
+
+        <where>
+            content IS NOT NULL
+            AND content != ''
+            AND content != '[]'
+            <if test="devId != null and devId != ''">
+                AND dev_id = #{devId}
+            </if>
+            <if test="address != null and address != ''">
+                AND address = #{address}
+            </if>
+            <if test="uid != null and uid != ''">
+                AND uid = #{uid}
+            </if>
+            <if test="douyinId != null and douyinId != ''">
+                AND douyin_id = #{douyinId}
+            </if>
+            <if test="content != null and content != ''">
+                AND content = #{content}
+            </if>
+            <if test="videoPath != null and videoPath != ''">
+                AND video_path = #{videoPath}
+            </if>
+            <if test="imagePath != null and imagePath != ''">
+                AND image_path = #{imagePath}
+            </if>
+            <if test="jsonString != null and jsonString != ''">
+                AND json_string = #{jsonString}
+            </if>
+            <if test="jsonPath != null and jsonPath != ''">
+                AND json_path = #{jsonPath}
+            </if>
+        </where>
+
+        LIMIT 200
+    </select>
+    <select id="selectVideoById" parameterType="Long" resultMap="VideoResult">
+        <include refid="selectVideoVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectVideoByUId" parameterType="String" resultMap="VideoResult">
+        <include refid="selectVideoVo"/>
+        where uid = #{uid}
+    </select>
+
+    <insert id="insertVideo" parameterType="Video" useGeneratedKeys="true" keyProperty="id">
+        insert into video
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="videoIndex != null">video_index,</if>
+            <if test="devId != null">dev_id,</if>
+            <if test="uid != null">uid,</if>
+            <if test="address != null">address,</if>
+            <if test="douyinId != null">douyin_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="content != null">content,</if>
+            <if test="videoPath != null">video_path,</if>
+            <if test="imagePath != null">image_path,</if>
+            <if test="jsonString != null">json_string,</if>
+            <if test="jsonPath != null">json_path,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="videoIndex != null">#{videoIndex},</if>
+            <if test="devId != null">#{devId},</if>
+            <if test="uid != null">#{uid},</if>
+            <if test="address != null">#{address},</if>
+            <if test="douyinId != null">#{douyinId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="content != null">#{content},</if>
+            <if test="videoPath != null">#{videoPath},</if>
+            <if test="imagePath != null">#{imagePath},</if>
+            <if test="jsonString != null">#{jsonString},</if>
+            <if test="jsonPath != null">#{jsonPath},</if>
+        </trim>
+    </insert>
+
+    <update id="updateVideo" parameterType="Video">
+        update video
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="videoIndex != null">video_index = #{videoIndex},</if>
+            <if test="devId != null">dev_id = #{devId},</if>
+            <if test="uid != null">uid = #{uid},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="douyinId != null">douyin_id = #{douyinId},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="videoPath != null">video_path = #{videoPath},</if>
+            <if test="imagePath != null">image_path = #{imagePath},</if>
+            <if test="jsonString != null">json_string = #{jsonString},</if>
+            <if test="jsonPath != null">json_path = #{jsonPath},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteVideoById" parameterType="Long">
+        delete
+        from video
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteVideoByIds" parameterType="String">
+        delete from video where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

@@ -3,8 +3,11 @@ package com.phone.module.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
-import com.phone.module.service.impl.DouyinTaskService;
+import com.phone.module.domain.VideoTags;
+import com.phone.module.service.DouyinTaskService;
+import com.phone.module.service.DouyinVideoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -94,14 +97,37 @@ public class AccountController extends BaseController {
 
     @Autowired
     private DouyinTaskService douyinTaskService;
+    @Autowired
+    private RedisTemplate redisTemplate;
     /**
      *  根据设备码 及抖音号 查询数据
      */
     @GetMapping("/crawl")
     public AjaxResult crawlAccount(@RequestParam String devId,
-                                   @RequestParam String accountName) throws Exception{
+                                   @RequestParam String douyinId) throws Exception{
+
+        String lockKey = "douyin:device:lock:"+devId;
+        Boolean isRunning = redisTemplate.hasKey(lockKey);
+
+        if (Boolean.TRUE.equals(isRunning)) {
+            // 异步任务立即提交，HTTP 请求立即返回
+            douyinTaskService.runTask(devId, douyinId);
+            return AjaxResult.success("任务已启动，正在异步爬取账号信息");
+        }else {
+            return AjaxResult.success("设备正在运行其他任务，请稍后再试");
+        }
+    }
+
+    @Autowired
+    private DouyinVideoService videoService;
+    /**
+     *  根据设备码 及抖音号 查询视频数据
+     */
+    @GetMapping("/crawlVideo")
+    public AjaxResult crawlVideo(@RequestParam String devId,
+                                   @RequestParam String douyinId) throws Exception{
         // 异步任务立即提交，HTTP 请求立即返回
-        douyinTaskService.runTask(devId, accountName);
+        videoService.asyncCrawlTask(devId, douyinId,new VideoTags(),"",true);
 
         return AjaxResult.success("任务已启动，正在异步爬取账号信息");
     }

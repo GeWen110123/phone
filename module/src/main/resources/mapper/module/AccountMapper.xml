@@ -10,11 +10,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="createTime"    column="create_time"    />
         <result property="updateTime"    column="update_time"    />
         <result property="jsonString"    column="json_string"    />
+
+        <result property="oldString"    column="old_string"    />
+        <result property="oldTime"    column="old_time"    />
+
         <result property="devId"    column="dev_id"    />
     </resultMap>
 
     <sql id="selectAccountVo">
-        select id, douyin_id, dev_id, create_time,  update_time, json_string from account
+        select id, douyin_id, dev_id, create_time,  update_time, json_string, old_string, old_time from account
     </sql>
 
     <select id="selectAccountList" parameterType="Account" resultMap="AccountResult">
@@ -24,6 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="devId != null  and devId != ''"> and dev_id = #{devId}</if>
             <if test="jsonString != null  and jsonString != ''"> and json_string = #{jsonString}</if>
         </where>
+        order by create_time desc
     </select>
     
     <select id="selectAccountById" parameterType="Long" resultMap="AccountResult">
@@ -43,12 +48,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="devId != null and devId != ''">dev_id,</if>
             <if test="createTime != null">create_time,</if>
             <if test="jsonString != null">json_string,</if>
+            <if test="oldString != null">old_string,</if>
+            <if test="oldTime != null">old_time,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="douyinId != null and douyinId != ''">#{douyinId},</if>
             <if test="devId != null and devId != ''">#{devId},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="jsonString != null">#{jsonString},</if>
+            <if test="oldString != null">#{oldString},</if>
+            <if test="oldTime != null">#{oldTime},</if>
          </trim>
     </insert>
 
@@ -57,6 +66,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="SET" suffixOverrides=",">
             <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="jsonString != null">json_string = #{jsonString},</if>
+            <if test="oldString != null">old_string = #{oldString},</if>
+            <if test="oldTime != null">old_time = #{oldTime},</if>
         </trim>
         where douyin_id = #{douyinId}
     </update>

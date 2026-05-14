@@ -100,4 +100,65 @@ public class XPathRegistry {
             "//*[contains(@text, '大学') or contains(@text, '学院') or contains(@text, '学校')]"
     };
 
+
+    /**
+     * 地点名称：台北101大楼
+     */
+
+    public static final String[] ADDRESS_TEXT_XPATHS = new String[] {
+
+            // ✅ 1. 最稳：直接找长文本地址（你的 XML 就是这个）
+            "//com.lynx.tasm.behavior.ui.text.FlattenUIText" +
+                    "[string-length(@text) > 20 and (" +
+                    "contains(@text,'省') or contains(@text,'市') or " +
+                    "contains(@text,'区') or contains(@text,'路') or contains(@text,'号')" +
+                    ")]",
+
+            // ✅ 2. 兼容 LynxFlattenUI 自带 text 的情况
+            "//com.lynx.tasm.behavior.ui.LynxFlattenUI" +
+                    "[string-length(@text) > 20 and (" +
+                    "contains(@text,'省') or contains(@text,'市') or " +
+                    "contains(@text,'区') or contains(@text,'路') or contains(@text,'号')" +
+                    ")]",
+
+            // ✅ 3. 兜底：任意长文本（防 UI 改版）
+            "//*[string-length(@text) > 25]"
+    };
+
+    /**
+     * 地点内容数量（7030）
+     */
+    public static final String[] ADDRESS_COUNT_XPATHS = new String[] {
+
+            // 地点内容 后面的数字（最精准）
+            "//com.lynx.tasm.behavior.ui.text.FlattenUIText[@text='地点内容']" +
+                    "/following-sibling::com.lynx.tasm.behavior.ui.text.FlattenUIText[1]",
+
+            // 兜底：第一个纯数字
+            "(//com.lynx.tasm.behavior.ui.text.FlattenUIText[matches(@text,'^\\d+$')])[1]"
+    };
+
+    /**
+     * 评价数（222）
+     */
+    public static final String[] COMMENTS_COUNT_XPATHS = new String[] {
+
+            // 评价 后面的数字（最稳）
+            "//com.lynx.tasm.behavior.ui.text.FlattenUIText[@text='评价']" +
+                    "/following-sibling::com.lynx.tasm.behavior.ui.text.FlattenUIText[1]",
+            // 兜底：第二个纯数字
+            "(//com.lynx.tasm.behavior.ui.text.FlattenUIText[matches(@text,'^\\d+$')])[2]"
+    };
+
+
+    // 评分
+    public static final String[] SCORE_XPATHS = new String[] {
+            "//com.lynx.tasm.behavior.ui.text.FlattenUIText[contains(@text,'分')]",
+            "//*[@content-desc and contains(@content-desc,'分')]"
+    };
+
+    // XPathRegistry.java
+    public static final String CLICK_COMMENT_TAB_XPATH =
+            "//com.lynx.tasm.behavior.ui.LynxFlattenUI[contains(@content-desc,'评价')]";
+
 }

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.AccountContentMapper">
+    
+    <resultMap type="AccountContent" id="AccountContentResult">
+        <result property="id"    column="id"    />
+        <result property="douyinId"    column="douyin_id"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="jsonString"    column="json_string"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="devId"    column="dev_id"    />
+        <result property="count"    column="count"    />
+        <result property="vUid"    column="v_uid"    />
+        <result property="accountName"    column="account_name"    />
+        <result property="commentCount"    column="comment_count"    />
+    </resultMap>
+
+    <sql id="selectAccountContentVo">
+        select id, douyin_id, create_time, json_string, update_time, dev_id, count, v_uid,account_name from account_content
+    </sql>
+
+    <select id="selectAccountContentList" parameterType="AccountContent" resultMap="AccountContentResult">
+        <include refid="selectAccountContentVo"/>
+        <where>  
+            <if test="douyinId != null  and douyinId != ''"> and douyin_id = #{douyinId}</if>
+            <if test="jsonString != null  and jsonString != ''"> and json_string = #{jsonString}</if>
+            <if test="devId != null  and devId != ''"> and dev_id = #{devId}</if>
+            <if test="count != null "> and count = #{count}</if>
+            <if test="vUid != null  and vUid != ''"> and v_uid = #{vUid}</if>
+            <if test="accountName != null  and accountName != ''"> and account_name = #{accountName}</if>
+        </where>
+        order by count desc
+    </select>
+    
+    <select id="selectAccountContentById" parameterType="Long" resultMap="AccountContentResult">
+        <include refid="selectAccountContentVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertAccountContent" parameterType="AccountContent" useGeneratedKeys="true" keyProperty="id">
+        insert into account_content
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">douyin_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="jsonString != null">json_string,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="devId != null">dev_id,</if>
+            <if test="count != null">count,</if>
+            <if test="vUid != null">v_uid,</if>
+
+            <if test="accountName != null">account_name,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">#{douyinId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="jsonString != null">#{jsonString},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="devId != null">#{devId},</if>
+            <if test="count != null">#{count},</if>
+            <if test="vUid != null">#{vUid},</if>
+
+            <if test="accountName != null">#{accountName},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAccountContent" parameterType="AccountContent">
+        update account_content
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">douyin_id = #{douyinId},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="jsonString != null">json_string = #{jsonString},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="devId != null">dev_id = #{devId},</if>
+            <if test="count != null">count = #{count},</if>
+            <if test="vUid != null">v_uid = #{vUid},</if>
+
+            <if test="accountName != null">account_name = #{accountName},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAccountContentById" parameterType="Long">
+        delete from account_content where id = #{id}
+    </delete>
+
+    <delete id="deleteAccountContentByIds" parameterType="String">
+        delete from account_content where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectAccountContentCountSum" parameterType="String" resultType="java.lang.Long">
+        SELECT IFNULL(SUM(`count`), 0)
+        FROM account_content
+        WHERE account_name = #{accountName}
+    </select>
+
+    <select id="selectAccountSumList" parameterType="String" resultMap="AccountContentResult">
+        SELECT
+            t.id,
+            t.douyin_id,
+            t.create_time,
+            t.json_string,
+            t.update_time,
+            t.dev_id,
+            t.v_uid,
+            t.account_name,
+            t.comment_count
+        FROM (
+                 SELECT
+                     a.*,
+                     SUM(a.`count`) OVER (PARTITION BY a.douyin_id) AS comment_count,
+                         ROW_NUMBER() OVER (PARTITION BY a.douyin_id ORDER BY a.create_time DESC) AS rn
+                 FROM account_content a
+                 WHERE account_name = #{accountName}
+             ) t
+        WHERE t.rn = 1
+        ORDER BY t.comment_count DESC
+    </select>
+    <select id="selectFollowList" parameterType="String" resultMap="AccountContentResult">
+        select id,
+               douyin_id,
+               create_time,
+               json_string,
+               update_time,
+               dev_id,
+               count,
+               v_uid,
+               account_name
+        from account_follow_user
+        WHERE douyin_id = #{accountName}
+    </select>
+    <select id="selectFansList" parameterType="String" resultMap="AccountContentResult">
+
+        select id,
+               douyin_id,
+               create_time,
+               json_string,
+               update_time,
+               dev_id,
+               count,
+               v_uid,
+               account_name
+        from account_fans_user
+
+        WHERE douyin_id = #{accountName}
+    </select>
+
+
+
+  <select id="selectFollowListByUid" parameterType="String" resultMap="AccountContentResult">
+        select id,
+               douyin_id,
+               create_time,
+               json_string,
+               update_time,
+               dev_id,
+               count,
+               v_uid,
+               account_name
+        from account_follow_user
+        WHERE v_uid = #{accountName}
+    </select>
+    <select id="selectFansListByUid" parameterType="String" resultMap="AccountContentResult">
+
+        select id,
+               douyin_id,
+               create_time,
+               json_string,
+               update_time,
+               dev_id,
+               count,
+               v_uid,
+               account_name
+        from account_fans_user
+
+        WHERE v_uid = #{accountName}
+    </select>
+
+
+
+
+    <insert id="insertFollow" parameterType="AccountContent" useGeneratedKeys="true" keyProperty="id">
+        insert into account_follow_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">douyin_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="jsonString != null">json_string,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="devId != null">dev_id,</if>
+            <if test="count != null">count,</if>
+            <if test="vUid != null">v_uid,</if>
+
+            <if test="accountName != null">account_name,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">#{douyinId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="jsonString != null">#{jsonString},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="devId != null">#{devId},</if>
+            <if test="count != null">#{count},</if>
+            <if test="vUid != null">#{vUid},</if>
+
+            <if test="accountName != null">#{accountName},</if>
+        </trim>
+    </insert>
+
+
+    <insert id="insertFans" parameterType="AccountContent" useGeneratedKeys="true" keyProperty="id">
+        insert into account_fans_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">douyin_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="jsonString != null">json_string,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="devId != null">dev_id,</if>
+            <if test="count != null">count,</if>
+            <if test="vUid != null">v_uid,</if>
+
+            <if test="accountName != null">account_name,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">#{douyinId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="jsonString != null">#{jsonString},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="devId != null">#{devId},</if>
+            <if test="count != null">#{count},</if>
+            <if test="vUid != null">#{vUid},</if>
+
+            <if test="accountName != null">#{accountName},</if>
+        </trim>
+    </insert>
+
+</mapper>

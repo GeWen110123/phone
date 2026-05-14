@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.AccountIpMapper">
+    
+    <resultMap type="AccountIp" id="AccountIpResult">
+        <result property="id"    column="id"    />
+        <result property="douyinId"    column="douyin_id"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="ipAddress"    column="ip_address"    />
+    </resultMap>
+
+    <sql id="selectAccountIpVo">
+        select id, douyin_id, create_time, ip_address from account_ip
+    </sql>
+
+    <select id="selectAccountIpList" parameterType="AccountIp" resultMap="AccountIpResult">
+        <include refid="selectAccountIpVo"/>
+        <where>  
+            <if test="douyinId != null  and douyinId != ''"> and douyin_id = #{douyinId}</if>
+            <if test="ipAddress != null  and ipAddress != ''"> and ip_address = #{ipAddress}</if>
+        </where>
+        order by create_time desc
+    </select>
+    
+    <select id="selectAccountIpById" parameterType="Long" resultMap="AccountIpResult">
+        <include refid="selectAccountIpVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertAccountIp" parameterType="AccountIp" useGeneratedKeys="true" keyProperty="id">
+        insert into account_ip
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">douyin_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="ipAddress != null">ip_address,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">#{douyinId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="ipAddress != null">#{ipAddress},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAccountIp" parameterType="AccountIp">
+        update account_ip
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="douyinId != null and douyinId != ''">douyin_id = #{douyinId},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="ipAddress != null">ip_address = #{ipAddress},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAccountIpById" parameterType="Long">
+        delete from account_ip where id = #{id}
+    </delete>
+
+    <delete id="deleteAccountIpByIds" parameterType="String">
+        delete from account_ip where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

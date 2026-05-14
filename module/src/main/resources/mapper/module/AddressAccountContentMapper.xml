@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.AddressAccountContentMapper">
+    
+    <resultMap type="AddressAccountContent" id="AddressAccountContentResult">
+        <result property="id"    column="id"    />
+        <result property="aVId"    column="a_v_id"    />
+        <result property="douyinId"    column="douyin_id"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="jsonString"    column="json_string"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="devId"    column="dev_id"    />
+        <result property="count"    column="count"    />
+
+        <result property="accountName"    column="account_name"    />
+    </resultMap>
+
+    <sql id="selectAddressAccountContentVo">
+        select id, a_v_id, douyin_id, create_time, json_string, update_time, dev_id, count, account_name from address_account_content
+    </sql>
+
+    <select id="selectAddressAccountContentList" parameterType="AddressAccountContent" resultMap="AddressAccountContentResult">
+        <include refid="selectAddressAccountContentVo"/>
+        <where>  
+            <if test="aVId != null  and aVId != ''"> and a_v_id = #{aVId}</if>
+            <if test="douyinId != null  and douyinId != ''"> and douyin_id = #{douyinId}</if>
+            <if test="jsonString != null  and jsonString != ''"> and json_string = #{jsonString}</if>
+            <if test="devId != null  and devId != ''"> and dev_id = #{devId}</if>
+            <if test="accountName != null  and accountName != ''"> and account_name = #{accountName}</if>
+            <if test="count != null "> and count = #{count}</if>
+        </where>
+        order by count desc
+    </select>
+    
+    <select id="selectAddressAccountContentById" parameterType="Long" resultMap="AddressAccountContentResult">
+        <include refid="selectAddressAccountContentVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertAddressAccountContent" parameterType="AddressAccountContent" useGeneratedKeys="true" keyProperty="id">
+        insert into address_account_content
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="aVId != null and aVId != ''">a_v_id,</if>
+            <if test="douyinId != null and douyinId != ''">douyin_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="jsonString != null">json_string,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="devId != null">dev_id,</if>
+            <if test="accountName != null">account_name,</if>
+            <if test="count != null">count,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="aVId != null and aVId != ''">#{aVId},</if>
+            <if test="douyinId != null and douyinId != ''">#{douyinId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="jsonString != null">#{jsonString},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="devId != null">#{devId},</if>
+            <if test="accountName != null">#{accountName},</if>
+            <if test="count != null">#{count},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAddressAccountContent" parameterType="AddressAccountContent">
+        update address_account_content
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="aVId != null and aVId != ''">a_v_id = #{aVId},</if>
+            <if test="douyinId != null and douyinId != ''">douyin_id = #{douyinId},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="jsonString != null">json_string = #{jsonString},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="devId != null">dev_id = #{devId},</if>
+            <if test="accountName != null">account_name = #{accountName},</if>
+            <if test="count != null">count = #{count},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAddressAccountContentById" parameterType="Long">
+        delete from address_account_content where id = #{id}
+    </delete>
+
+    <delete id="deleteAddressAccountContentByIds" parameterType="String">
+        delete from address_account_content where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

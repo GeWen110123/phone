@@ -13,10 +13,10 @@ import java.util.List;
 public class VideoMergeTest {
 
     // ffmpeg.exe 的绝对路径
-    private static final String FFMPEG_PATH = "D:/douyin_output/ffmpeg/bin/ffmpeg.exe";
+    private static final String FFMPEG_PATH = "F:/douyin_output/ffmpeg/bin/ffmpeg.exe";
 
     // 视频输出文件夹
-    private static final String VIDEO_OUTPUT_FOLDER = "D:/douyin_output/video";
+    private static final String VIDEO_OUTPUT_FOLDER = "F:/douyin_output/video";
 
     public static void mergeVideoSegments(List<String> segmentFiles, String finalFilename) throws Exception {
         // 临时列表文件

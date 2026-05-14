@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.AddressVideoMapper">
+    
+    <resultMap type="AddressVideo" id="AddressVideoResult">
+        <result property="uid"    column="uid"    />
+        <result property="videoIndex"    column="video_index"    />
+        <result property="devId"    column="dev_id"    />
+        <result property="douyinId"    column="douyin_id"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="content"    column="content"    />
+        <result property="videoPath"    column="video_path"    />
+        <result property="imagePath"    column="image_path"    />
+        <result property="jsonString"    column="json_string"    />
+        <result property="jsonPath"    column="json_path"    />
+        <result property="address"    column="address"    />
+        <result property="followCount"    column="follow_count"    />
+        <result property="fansCount"    column="fans_count"    />
+        <result property="likesCount"    column="likes_count"    />
+        <result property="ipAddress"    column="ip_address"    />
+    </resultMap>
+
+    <sql id="selectAddressVideoVo">
+        select uid, video_index, dev_id, douyin_id, create_time, content, video_path, image_path,
+               json_string, json_path, address , follow_count , fans_count, likes_count , ip_address from address_video
+    </sql>
+
+    <select id="selectAddressVideoList" parameterType="AddressVideo" resultMap="AddressVideoResult">
+        <include refid="selectAddressVideoVo"/>
+        <where>  
+            <if test="videoIndex != null "> and video_index = #{videoIndex}</if>
+            <if test="devId != null  and devId != ''"> and dev_id = #{devId}</if>
+            <if test="douyinId != null  and douyinId != ''"> and douyin_id = #{douyinId}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="videoPath != null  and videoPath != ''"> and video_path = #{videoPath}</if>
+            <if test="imagePath != null  and imagePath != ''"> and image_path = #{imagePath}</if>
+            <if test="jsonString != null  and jsonString != ''"> and json_string = #{jsonString}</if>
+            <if test="jsonPath != null  and jsonPath != ''"> and json_path = #{jsonPath}</if>
+            <if test="address != null  and address != ''"> and address = #{address}</if>
+            <if test="ipAddress != null  and ipAddress != ''"> and ip_address like concat('%', #{ipAddress}, '%')</if>
+        </where>
+
+        GROUP BY  douyin_id
+        <!-- 排序 -->
+        <choose>
+            <when test="sortField != null and sortField != ''">
+                ORDER BY
+                <choose>
+                    <when test="sortField == 'fansCount'"> fans_count </when>
+                    <when test="sortField == 'followCount'"> follow_count </when>
+                    <when test="sortField == 'likesCount'"> likes_count </when>
+                    <otherwise> create_time </otherwise>
+                </choose>
+
+                <choose>
+                    <when test="sortOrder == 'desc'"> DESC </when>
+                    <otherwise> ASC </otherwise>   <!-- 默认升序 -->
+                </choose>
+            </when>
+            <otherwise>
+                ORDER BY create_time ASC   <!-- 默认排序 -->
+            </otherwise>
+        </choose>
+
+    </select>
+
+    <select id="selectAddressVideoList200" parameterType="AddressVideo" resultMap="AddressVideoResult">
+        <include refid="selectAddressVideoVo"/>
+        <where>
+            content IS NOT NULL
+            AND content != ''
+            AND content != '[]'
+            <if test="videoIndex != null "> and video_index = #{videoIndex}</if>
+            <if test="devId != null  and devId != ''"> and dev_id = #{devId}</if>
+            <if test="douyinId != null  and douyinId != ''"> and douyin_id = #{douyinId}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="videoPath != null  and videoPath != ''"> and video_path = #{videoPath}</if>
+            <if test="imagePath != null  and imagePath != ''"> and image_path = #{imagePath}</if>
+            <if test="jsonString != null  and jsonString != ''"> and json_string = #{jsonString}</if>
+            <if test="jsonPath != null  and jsonPath != ''"> and json_path = #{jsonPath}</if>
+            <if test="address != null  and address != ''"> and address = #{address}</if>
+            <if test="ipAddress != null  and ipAddress != ''"> and ip_address like concat('%', #{ipAddress}, '%')</if>
+        </where>
+        LIMIT 200
+    </select>
+
+
+    <select id="selectAddressVideoByUid" parameterType="String" resultMap="AddressVideoResult">
+        <include refid="selectAddressVideoVo"/>
+        where uid = #{uid}
+    </select>
+        
+    <insert id="insertAddressVideo" parameterType="AddressVideo">
+        insert into address_video
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="videoIndex != null">video_index,</if>
+            <if test="devId != null and devId != ''">dev_id,</if>
+            <if test="douyinId != null and douyinId != ''">douyin_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="content != null">content,</if>
+            <if test="videoPath != null">video_path,</if>
+            <if test="imagePath != null">image_path,</if>
+            <if test="jsonString != null">json_string,</if>
+            <if test="jsonPath != null">json_path,</if>
+            <if test="address != null">address,</if>
+            <if test="followCount != null">follow_count,</if>
+            <if test="fansCount != null">fans_count,</if>
+            <if test="likesCount != null">likes_count,</if>
+            <if test="ipAddress != null">ip_address,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="videoIndex != null">#{videoIndex},</if>
+            <if test="devId != null and devId != ''">#{devId},</if>
+            <if test="douyinId != null and douyinId != ''">#{douyinId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="content != null">#{content},</if>
+            <if test="videoPath != null">#{videoPath},</if>
+            <if test="imagePath != null">#{imagePath},</if>
+            <if test="jsonString != null">#{jsonString},</if>
+            <if test="jsonPath != null">#{jsonPath},</if>
+            <if test="address != null">#{address},</if>
+            <if test="followCount != null">#{followCount},</if>
+            <if test="fansCount != null">#{fansCount},</if>
+            <if test="likesCount != null">#{likesCount},</if>
+            <if test="ipAddress != null">#{ipAddress},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAddressVideo" parameterType="AddressVideo">
+        update address_video
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="videoIndex != null">video_index = #{videoIndex},</if>
+            <if test="devId != null and devId != ''">dev_id = #{devId},</if>
+            <if test="douyinId != null and douyinId != ''">douyin_id = #{douyinId},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="videoPath != null">video_path = #{videoPath},</if>
+            <if test="imagePath != null">image_path = #{imagePath},</if>
+            <if test="jsonString != null">json_string = #{jsonString},</if>
+            <if test="jsonPath != null">json_path = #{jsonPath},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="followCount != null">follow_count = #{followCount},</if>
+            <if test="fansCount != null">fans_count = #{fansCount},</if>
+            <if test="likesCount != null">likes_count = #{likesCount},</if>
+            <if test="ipAddress != null">ip_address = #{ipAddress},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteAddressVideoByUid" parameterType="String">
+        delete from address_video where uid = #{uid}
+    </delete>
+
+    <delete id="deleteAddressVideoByUids" parameterType="String">
+        delete from address_video where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+
+
+
+
+    <select id="selectAllVideoDId" parameterType="AddressVideo" resultMap="AddressVideoResult">
+        select uid,douyin_id, follow_count, fans_count,likes_count,ip_address
+        from address_video
+        <where>
+            douyin_id IS NOT NULL
+            AND ip_address IS NULL
+        </where>
+    </select>
+
+
+    <select id="selectAddressListByIp"
+            parameterType="AddressVideo"
+            resultType="java.lang.String">
+
+        SELECT ip_address
+        FROM address_video
+        <where>
+            ip_address IS NOT NULL
+            AND ip_address != ''
+            <if test="address != null and address != ''">
+                AND address = #{address}
+            </if>
+        </where>
+        GROUP BY ip_address
+
+    </select>
+
+
+
+</mapper>

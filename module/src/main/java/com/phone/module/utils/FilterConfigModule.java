@@ -19,7 +19,7 @@ public class FilterConfigModule {
         filterRegistrationBean.setFilter(moduleFilter);
         String[] list= {"/login", "/register", "/captchaImage"};
 //         filterRegistrationBean.addUrlPatterns("/module/merge/*","/module/order/*");
-        filterRegistrationBean.addUrlPatterns("/*");
+        filterRegistrationBean.addUrlPatterns("/1");
         filterRegistrationBean.setName("moduleFilter");
         filterRegistrationBean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         filterRegistrationBean.setEnabled(true);

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.VideoTagsMapper">
+    
+    <resultMap type="VideoTags" id="VideoTagsResult">
+        <result property="id"    column="id"    />
+        <result property="devId"    column="dev_id"    />
+        <result property="douyinId"    column="douyin_id"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="tags"    column="tags"    />
+        <result property="status"    column="status"    />
+        <result property="taskId"    column="task_id"    />
+        <result property="taskName"    column="task_name"    />
+        <result property="remark"    column="remark"    />
+        <result property="runNum"    column="run_num"    />
+    </resultMap>
+
+    <sql id="selectVideoTagsVo">
+        select id, dev_id, douyin_id, create_time, tags, status, task_id , task_name, remark , run_num , update_time from video_tags
+    </sql>
+
+    <select id="selectVideoTagsList" parameterType="VideoTags" resultMap="VideoTagsResult">
+        <include refid="selectVideoTagsVo"/>
+        <where>
+            <if test="devId != null  and devId != ''"> and dev_id = #{devId}</if>
+            <if test="douyinId != null  and douyinId != ''"> and douyin_id = #{douyinId}</if>
+            <if test="tags != null  and tags != ''"> and tags = #{tags}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="taskId != null  and taskId != ''"> and task_id = #{taskId}</if>
+            <if test="taskName != null  and taskName != ''"> and task_name = #{taskName}</if>
+            <if test="remark != null  and remark != ''"> and remark = #{remark}</if>
+        </where>
+        ORDER BY update_time DESC
+    </select>
+    
+    <select id="selectVideoTagsById" parameterType="Long" resultMap="VideoTagsResult">
+        <include refid="selectVideoTagsVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertVideoTags" parameterType="VideoTags" useGeneratedKeys="true" keyProperty="id">
+        insert into video_tags
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="devId != null">dev_id,</if>
+            <if test="douyinId != null">douyin_id,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="tags != null">tags,</if>
+            <if test="status != null">status,</if>
+            <if test="taskId != null">task_id,</if>
+            <if test="taskName != null">task_name,</if>
+            <if test="remark != null">remark,</if>
+            <if test="runNum != null">run_num,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="devId != null">#{devId},</if>
+            <if test="douyinId != null">#{douyinId},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="tags != null">#{tags},</if>
+            <if test="status != null">#{status},</if>
+            <if test="taskId != null">#{taskId},</if>
+            <if test="taskName != null">#{taskName},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="runNum != null">#{runNum},</if>
+         </trim>
+    </insert>
+
+    <update id="updateVideoTags" parameterType="VideoTags">
+        update video_tags
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="devId != null">dev_id = #{devId},</if>
+            <if test="douyinId != null">douyin_id = #{douyinId},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="tags != null">tags = #{tags},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="taskId != null">task_id = #{taskId},</if>
+            <if test="taskName != null">task_name = #{taskName},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="runNum != null">run_num = #{runNum},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteVideoTagsById" parameterType="Long">
+        delete from video_tags where id = #{id}
+    </delete>
+
+    <delete id="deleteVideoTagsByIds" parameterType="String">
+        delete from video_tags where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

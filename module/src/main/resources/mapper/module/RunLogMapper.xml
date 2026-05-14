@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.phone.module.mapper.RunLogMapper">
+    
+    <resultMap type="RunLog" id="RunLogResult">
+        <result property="id"    column="id"    />
+        <result property="devId"    column="dev_id"    />
+        <result property="runingDetail"    column="runing_detail"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="type"    column="type"    />
+        <result property="douyinId"    column="douyinId"    />
+        <result property="userId"    column="userId"    />
+    </resultMap>
+
+    <sql id="selectRunLogVo">
+        select id, dev_id, runing_detail, create_time , type , douyinId , userId from run_log
+    </sql>
+
+    <select id="selectRunLogList" parameterType="RunLog" resultMap="RunLogResult">
+        <include refid="selectRunLogVo"/>
+        <where>  
+            <if test="devId != null "> and dev_id = #{devId}</if>
+            <if test="douyinId != null "> and douyinId = #{douyinId}  or userId = #{douyinId} </if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="runingDetail != null  and runingDetail != ''"> and runing_detail = #{runingDetail}</if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+    
+    <select id="selectRunLogById" parameterType="Long" resultMap="RunLogResult">
+        <include refid="selectRunLogVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertRunLog" parameterType="RunLog">
+        insert into run_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="devId != null">dev_id,</if>
+            <if test="type != null">type,</if>
+            <if test="douyinId != null">douyinId,</if>
+            <if test="userId != null">userId,</if>
+            <if test="runingDetail != null">runing_detail,</if>
+            <if test="createTime != null">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="devId != null">#{devId},</if>
+            <if test="type != null">#{type},</if>
+            <if test="douyinId != null">#{douyinId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="runingDetail != null">#{runingDetail},</if>
+            <if test="createTime != null">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateRunLog" parameterType="RunLog">
+        update run_log
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="devId != null">dev_id = #{devId},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="douyinId != null">douyinId = #{douyinId},</if>
+            <if test="userId != null">userId = #{userId},</if>
+            <if test="runingDetail != null">runing_detail = #{runingDetail},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteRunLogById" parameterType="Long">
+        delete from run_log where id = #{id}
+    </delete>
+
+    <delete id="deleteRunLogByIds" parameterType="String">
+        delete from run_log where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

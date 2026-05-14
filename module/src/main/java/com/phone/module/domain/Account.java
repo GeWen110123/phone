@@ -1,9 +1,13 @@
 package com.phone.module.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.phone.common.annotation.Excel;
 import com.phone.common.core.domain.BaseEntity;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * 抖音账号信息对象 account
@@ -39,7 +43,85 @@ public class Account extends BaseEntity
 } */
 
     private String jsonString;
+    private String oldString;
     private String devId;
+    private String followStatus;
+    private String fansStatus;
+    private String tags;
+    private String status;
+
+
+
+
+    /** 更新时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date oldTime;
+    private long counts;
+    private long commentCount;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public long getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(long commentCount) {
+        this.commentCount = commentCount;
+    }
+
+    public String getFollowStatus() {
+        return followStatus;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public void setFollowStatus(String followStatus) {
+        this.followStatus = followStatus;
+    }
+
+    public String getFansStatus() {
+        return fansStatus;
+    }
+
+    public void setFansStatus(String fansStatus) {
+        this.fansStatus = fansStatus;
+    }
+
+    public long getCounts() {
+        return counts;
+    }
+
+    public void setCounts(long counts) {
+        this.counts = counts;
+    }
+
+    public Date getOldTime() {
+        return oldTime;
+    }
+
+    public void setOldTime(Date oldTime) {
+        this.oldTime = oldTime;
+    }
+
+    public String getOldString() {
+        return oldString;
+    }
+
+    public void setOldString(String oldString) {
+        this.oldString = oldString;
+    }
 
     public String getDevId() {
         return devId;

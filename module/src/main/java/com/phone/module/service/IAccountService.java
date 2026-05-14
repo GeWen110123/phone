@@ -18,6 +18,7 @@ public interface IAccountService
      * @return 抖音账号信息
      */
     public Account selectAccountById(Long id);
+    public Account selectByDouyinId(String id);
 
     /**
      * 查询抖音账号信息列表
