@@ -215,31 +215,31 @@ public class AccountInfoFetcher {
             }
         }
 
-//        if ("1".equals(status)) {
-//            douyinTaskService.storeAccountAsync(devId, accountName, info,"");
-//
-//            int followCount = parseCount((String) info.get("follow_count"));
-//            int fansCount = parseCount((String) info.get("fans_count"));
-//
-//
-//            // ⭐ 采集关注
-//            if (followCount > 0 && clickFollowButtonAndCheck()) {
-//                int count =accountContentService.selectFollowList(douyinId).size();
-//                if (count<=followCount/2){
-//                    collectRelationList("follow", devId, douyinId,count);
-//                }
-//                driver.navigate().back();
-//            }
-//
-//            // ⭐ 采集粉丝
-//            if (fansCount > 0 && clickFansButtonAndCheck()) {
-//                int count =accountContentService.selectFansList(douyinId).size();
-//                if (count<=fansCount/2){
-//                    collectRelationList("fans", devId, douyinId,count);
-//                }
-//                driver.navigate().back();
-//            }
-//        }
+        if ("1".equals(status)) {
+            douyinTaskService.storeAccountAsync(devId, accountName, info,"");
+
+            int followCount = parseCount((String) info.get("follow_count"));
+            int fansCount = parseCount((String) info.get("fans_count"));
+
+
+            // ⭐ 采集关注
+            if (followCount > 0 && clickFollowButtonAndCheck()) {
+                int count =accountContentService.selectFollowList(douyinId).size();
+                if (count<=followCount/2){
+                    collectRelationList("follow", devId, douyinId,count);
+                }
+                driver.navigate().back();
+            }
+
+            // ⭐ 采集粉丝
+            if (fansCount > 0 && clickFansButtonAndCheck()) {
+                int count =accountContentService.selectFansList(douyinId).size();
+                if (count<=fansCount/2){
+                    collectRelationList("fans", devId, douyinId,count);
+                }
+                driver.navigate().back();
+            }
+        }
 
         return info;
     }
@@ -248,8 +248,8 @@ public class AccountInfoFetcher {
 
         logger.info("进入" + (type.equals("follow") ? "关注" : "粉丝") + "列表页");
 
-        if (count / 10 > 1) {
-            int loops = count / 10;
+        if (count / 3 > 1) {
+            int loops = count / 3;
             for (int i = 0; i < loops; i++) {  // 条件 i < loops
                 scrollList();
                 try {

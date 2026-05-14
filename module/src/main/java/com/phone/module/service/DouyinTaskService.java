@@ -48,6 +48,12 @@ public class DouyinTaskService {
     private IAccountContentService accountContentService;
     @Autowired
     private IAddressAccountContentService addressAccountContentService;
+    @Autowired
+    private IVideoService videoService;
+    @Autowired
+    private IVideoTagsService videoTagsService;
+    @Autowired
+    private IAccountIpService accountIpService;
 
 
     // =====================================================
@@ -122,19 +128,9 @@ public class DouyinTaskService {
         return false;
     }
 
-    @Autowired
-    private IVideoService videoService;
-
-
-    @Autowired
-    private IVideoTagsService videoTagsService;
-
-    @Autowired
-    private IAccountIpService accountIpService;
-
 
     // =====================================================
-    // 数据库写入（异步）
+    // 抖音账号信息对象 数据库写入（异步）
     // =====================================================
     public void storeAccountAsync(String devId, String accountName, Map<String, Object> resultMap, String tags) {
         try {
@@ -236,7 +232,7 @@ public class DouyinTaskService {
 
 
     // =====================================================
-    // 数据库写入（异步）
+    // 视频评论账号信息对象 数据库写入（异步）
     // =====================================================
     public void storeAccountByAccount(String uid, String devId, String douyinId, String accountName, Map<String, Object> resultMap) {
         try {
@@ -274,7 +270,7 @@ public class DouyinTaskService {
 
 
     // =====================================================
-    // 数据库写入（异步）
+    // 地址评论账号信息对象 数据库写入（异步）
     // =====================================================
     public void storeAccountByAddressAccount(String uid, String devId, String douyinId, String accountName, Map<String, Object> resultMap) {
         try {
@@ -310,7 +306,7 @@ public class DouyinTaskService {
 
 
     // =====================================================
-    // 数据库写入（异步）   主页点击查看到的关注人员
+    // 视频评论账号信息对象 数据库写入（异步）   主页点击查看到的关注人员
     // =====================================================
     public void storeAccountByFollow(String uid, String devId, String douyinId, String accountName, Map<String, Object> resultMap) {
         try {
@@ -333,6 +329,7 @@ public class DouyinTaskService {
             logger.severe("DB 写入失败: " + ex.getMessage());
         }
     }
+
     public void storeAccountByFans(String uid, String devId, String douyinId, String accountName, Map<String, Object> resultMap) {
         try {
             ObjectMapper mapper = new ObjectMapper();
