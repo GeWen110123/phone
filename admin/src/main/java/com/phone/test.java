@@ -42,14 +42,12 @@ public class test implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
 
+//        项目启动时清楚全部相关的devid
         String lockKey = "douyin:device:lock:ec86e946";
         redisTemplate.delete(lockKey);
         Boolean isRunning = redisTemplate.hasKey(lockKey);
         System.out.println(isRunning);
         System.out.println("🚀 Douyin Task Loop 启动成功！");
-//
-//        // 启动独立线程执行循环任务
-//        new Thread(this::taskLoop, "douyin-task-loop-thread").start();
 
         getFollowCount();
         getIpAddress();
@@ -179,75 +177,4 @@ public class test implements ApplicationRunner {
             return 0L;
         }
     }
-
-
-//    /**
-//     * 主循环逻辑：无任务 → sleep 10 分钟；有任务 → 立即执行
-//     */
-//    private void taskLoop() {
-//
-//        while (true) {
-//            try {
-//                runOnce();
-//            } catch (Exception e) {
-//                System.out.println("❌ 任务循环异常：" + e.getMessage());
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//
-//
-//    /**
-//     * 单轮任务调度
-//     */
-//    /**
-//     * 单轮任务调度（每次只处理 1 条）
-//     */
-//    private void runOnce() throws InterruptedException {
-//
-//        // 1️⃣ 查询全部 tags
-//        List<VideoTags> list = videoTagsService.selectVideoTagsList(new VideoTags());
-//
-//        // 2️⃣ 找到一个 status != 1 的任务
-//        VideoTags task = list.stream()
-//                .filter(t -> !"1".equals(t.getStatus()))
-//                .findFirst()
-//                .orElse(null);
-//
-//        // 3️⃣ 如果没有任务 → 休眠 10 分钟
-//        if (task == null) {
-//            System.out.println("😴 当前无任务，10 分钟后再次检查...");
-//            Thread.sleep(10 * 60 * 1000);
-//            return;
-//        }
-//
-//        // 4️⃣ 有任务 → 检查 Redis 锁
-//        String devId = task.getDevId();
-//        String lockKey = "douyin:device:lock:" + devId;
-//
-//        Boolean isRunning = redisTemplate.hasKey(lockKey);
-//
-//        if (Boolean.TRUE.equals(isRunning)) {
-//            System.out.println("⛔ 设备 " + devId + " 正在执行任务，跳过 tagsId=" + task.getId());
-//            return;  // ❗ 注意：只跳过，不 sleep，立即下一轮
-//        }
-//
-//        // 5️⃣ 执行任务
-//        System.out.println("🚀 开始执行任务 tagsId=" + task.getId() + " 设备=" + devId);
-//
-//        videoService.asyncCrawlTask(devId, task.getDouyinId(), task);
-//
-//        // 设置 24 小时锁
-//        redisTemplate.opsForValue().set(
-//                lockKey,
-//                "1",
-//                86400,
-//                TimeUnit.SECONDS
-//        );
-//
-//        System.out.println("🔒 已对设备 " + devId + " 设置 24 小时锁");
-//
-//        // ❗ 执行完这一条之后直接退出本轮
-//    }
-
 }

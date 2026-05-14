@@ -17,6 +17,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class RuoYiApplication {
     public static void main(String[] args) {
         SpringApplication.run(RuoYiApplication.class, args);
-        System.out.println("OJBKﾞ ");
+        System.out.println("(♥◠‿◠)ﾉﾞ  SUCCESS   ლ(´ڡ`ლ)ﾞ" );
     }
 }

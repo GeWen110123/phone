@@ -35,7 +35,22 @@ public class ScheduledTask {
     private IStrategyLogService strategyLogService;
     @Autowired
     private IDeviceService deviceService;
-
+    @Autowired
+    private IVideoTagsService videoTagsService;
+    @Autowired
+    private DouyinVideoService douyinVideoService;
+    @Autowired
+    private RedisTemplate redisTemplate;
+    @Autowired
+    private IAccountService accountService;
+    @Autowired
+    private IVideoService videoService;
+    @Autowired
+    private IRunLogService runLogService;
+    @Autowired
+    private ICommentService commentService;
+    @Autowired
+    private IAddressVideoService addressVideoService;
 
     /**
      * 策略执行表
@@ -75,21 +90,6 @@ public class ScheduledTask {
     }
 
 
-    @Autowired
-    private IVideoTagsService videoTagsService;
-
-
-    @Autowired
-    private DouyinVideoService douyinVideoService;
-
-    @Autowired
-    private RedisTemplate redisTemplate;
-    @Autowired
-    private IAccountService accountService;
-    @Autowired
-    private IVideoService videoService;
-    @Autowired
-    private IRunLogService runLogService;
     /**
      * 视频执行表
      */
@@ -103,7 +103,7 @@ public class ScheduledTask {
             if (!"0".equals(tags.getStatus())) {
                 continue;
             }
-            if (tags.getRunNum()>=30){
+            if (tags.getRunNum() >= 30) {
                 // 标记为完成状态
                 tags.setStatus("2");
                 videoTagsService.updateVideoTags(tags);
@@ -140,7 +140,7 @@ public class ScheduledTask {
             runLog.setDevId(devId);
             runLog.setDouyinId(tags.getDouyinId());
             runLog.setType("启动抖音获取数据");
-            runLog.setRuningDetail("启动抖音获取"+tags.getDouyinId()+"数据");
+            runLog.setRuningDetail("启动抖音获取" + tags.getDouyinId() + "数据");
             runLogService.insertRunLog(runLog);
 
             // 异步执行
@@ -148,8 +148,8 @@ public class ScheduledTask {
 
             // 标记执行中（先改状态，防止并发）
             tags.setStatus("1");
-            tags.setRunNum(tags.getRunNum()+1);
-            if (StringUtils.isNull(tags.getTaskId())){
+            tags.setRunNum(tags.getRunNum() + 1);
+            if (StringUtils.isNull(tags.getTaskId())) {
                 tags.setTaskId(3L);
             }
             videoTagsService.updateVideoTags(tags);
@@ -164,7 +164,9 @@ public class ScheduledTask {
         recoverAbnormalTasks();
     }
 
-
+    /**
+     * 无可执行任务，恢复异常任务为待执行
+     */
     private void recoverAbnormalTasks() {
 
         List<VideoTags> listStatus = videoTagsService.selectVideoTagsList(new VideoTags());
@@ -184,6 +186,9 @@ public class ScheduledTask {
         }
     }
 
+    /**
+     * 回存 把视频数量放进去
+     */
     private void updateAccountCache(String devId, String douyinId) throws JsonProcessingException {
 
 
@@ -203,9 +208,8 @@ public class ScheduledTask {
                     new TypeReference<Map<String, Object>>() {
                     }
             );
-// ⭐ 把视频数量放进去（字段名你自己定）
+// 把视频数量放进去
             map.put("video_count", listVoids.size());
-
 // Map → JSON 字符串
             String newJson = mapper.writeValueAsString(map);
 // 如果需要回存
@@ -216,27 +220,18 @@ public class ScheduledTask {
     }
 
 
-
-
-    @Autowired
-    private ICommentService commentService;
-
-    @Autowired
-    private IAddressVideoService addressVideoService;
-
-
-
     // 开机执行一次
     @PostConstruct
     public void runOnStartup() throws JsonProcessingException {
         getDouyinidToComment();
     }
 
-    // 每天执行一次
+    // 30分钟执行一次
     @Scheduled(cron = "0 */30 * * * ?")
     public void getJson() throws JsonProcessingException {
         getJsonToMysql();
     }
+
     /**
      * 视频执行表
      */
@@ -250,13 +245,13 @@ public class ScheduledTask {
             }
 
             for (Comment c : list) {
-                Video v =videoService.selectVideoByUId(c.getUid());
+                Video v = videoService.selectVideoByUId(c.getUid());
 
-                if (StringUtils.isNotNull(v)){
+                if (StringUtils.isNotNull(v)) {
                     c.setUserDouyin(v.getDouyinId());
-                }else {
+                } else {
                     AddressVideo av = addressVideoService.selectAddressVideoByUid(c.getUid());
-                    if (StringUtils.isNotNull(av)){
+                    if (StringUtils.isNotNull(av)) {
                         c.setUserDouyin(av.getDouyinId());
                     }
                 }
@@ -266,6 +261,7 @@ public class ScheduledTask {
 
         System.out.println("结束了");
     }
+
     private void getJsonToMysql() throws JsonProcessingException {
 
         ObjectMapper mapper = new ObjectMapper();
