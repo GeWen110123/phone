@@ -35,18 +35,14 @@ public class DouyinVideoService {
 
     @Autowired
     private RedisTemplate redisTemplate;
-
     @Autowired
     private IVideoTagsService videoTagsService;
-
     @Autowired
     private DouyinTaskService douyinTaskService;
     @Autowired
     private IAddressVideoService addressVideoService;
-
     @Autowired
     private IVideoService videoService;
-
     @Autowired
     private IAccountContentService accountContentService;
     @Autowired
@@ -138,23 +134,7 @@ public class DouyinVideoService {
 
         videoTagsService.updateVideoTags(tags);
     }
-//
-//    public int getWorksCount(Account account) {
-//        try {
-//            ObjectMapper mapper = new ObjectMapper();
-//            Map<String, Object> map = mapper.readValue(
-//                    account.getJsonString(),
-//                    new TypeReference<Map<String, Object>>() {}
-//            );
-//
-//            Object wc = map.get("works_count");
-//            return wc == null ? 0 : Integer.parseInt(wc.toString());
-//
-//        } catch (Exception e) {
-//            logger.warning("解析 works_count 失败: " + e.getMessage());
-//            return 0;
-//        }
-//    }
+
     public static int getRealWorksCount(String jsonString) {
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -177,7 +157,7 @@ public class DouyinVideoService {
             if (worksText.contains("打卡")) {
                 worksCount = worksCount / 10;
             }else {
-                worksCount = worksCount / 10;
+                worksCount = worksCount / 5;
             }
 
             return worksCount;
@@ -201,17 +181,6 @@ public class DouyinVideoService {
                     .map(Integer::parseInt)
                     .orElse(0);
 
-//            // ② 再看 works 文本是不是“打卡”类型
-//            String worksText = Optional.ofNullable(map.get("works"))
-//                    .map(Object::toString)
-//                    .orElse("");
-//
-//            if (worksText.contains("打卡")) {
-//                worksCount = worksCount / 10;
-//            }else {
-//                worksCount = worksCount / 30;
-//            }
-
             return worksCount;
 
         } catch (Exception e) {
@@ -222,16 +191,16 @@ public class DouyinVideoService {
 
     /**
      * 使用 RedisTemplate 实现设备排它锁
+     * 执行抓取操作
      */
-    private void crawlWithRedisTemplateLock(String devId, String accountName, VideoTags tags,String lockKey,boolean locked) {
-
-
-
+    private void crawlWithRedisTemplateLock(String devId,
+                                            String accountName,
+                                            VideoTags tags,
+                                            String lockKey,
+                                            boolean locked) {
         try {
-
             // 执行抓取
             crawlSingleAccount(devId, accountName, tags.getTags());
-
         } catch (Exception e) {
             logger.severe("❌ Redis 分布式锁错误：" + e.getMessage());
         } finally {
