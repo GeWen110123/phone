@@ -1,20 +1,5 @@
-# Maven
-target/
-
-# Gradle
-build/
-
-# IDEA
 .idea/
 *.iml
+target/
 out/
-
-# Java
 *.class
-
-# Logs
-*.log
-
-# OS
-.DS_Store
-Thumbs.db
