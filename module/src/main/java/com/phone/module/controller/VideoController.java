@@ -126,6 +126,7 @@ public class VideoController extends BaseController {
 
 // 4. 存入 account
                 account.setJsonString(json.toString());
+                account.setOldString(json.toString());
 
             }
         }
