@@ -10,6 +10,7 @@ import com.phone.module.domain.*;
 import com.phone.module.service.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -105,49 +106,70 @@ public class VideoTagsController extends BaseController {
     @Log(title = "VideoTags", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody VideoTags videoTags) {
-//        String douyinId = videoTags.getDouyinId();
-        String douyinId = StringUtils.isNotBlank(videoTags.getUserId()) ? videoTags.getUserId() : videoTags.getDouyinId();
-// 转为 List<String>
-        List<String> douyinIdList = Arrays.stream(douyinId.split(","))
-                .map(String::trim)     // 去空格
-                .filter(s -> !s.isEmpty())   // 过滤空字符串
-                .collect(Collectors.toList());
+        // 1. 安全获取 抖音ID字符串（优先douyinId，没有则用userId）
+        String douyinIdStr = StringUtils.isNotBlank(videoTags.getDouyinId())
+                ? videoTags.getDouyinId()
+                : videoTags.getUserId();
 
-        System.out.println(douyinIdList);
-        for (String name : douyinIdList) {
-            VideoTags tags = new VideoTags();
-            tags.setDouyinId(name);
-            List<VideoTags> list = videoTagsService.selectVideoTagsList(tags);
-            if (list.size()>0){
-                VideoTags tags1 = list.get(0);
-                tags1.setDevId(videoTags.getDevId());
-                tags1.setTags(videoTags.getTags());
-                tags1.setStatus("0");
-                videoTagsService.updateVideoTags(tags1);
-            }else {
-                tags.setDevId(videoTags.getDevId());
-                tags.setTags(videoTags.getTags());
-                videoTagsService.insertVideoTags(tags);
-            }
-
-            RunLog runLog = new RunLog();
-            runLog.setDevId(videoTags.getDevId());
-            runLog.setDouyinId(name);
-            if (StringUtils.isNotEmpty(videoTags.getUserId())){
-
-                runLog.setRuningDetail("新增抖音"+tags.getUserId()+"数据到"+name+"任务列表");
-
-            }else{
-                runLog.setRuningDetail("新增抖音"+name+"数据到任务列表");
-            }
-            runLog.setType("新增");
-            runLogService.insertRunLog(runLog);
-
+        // 2. 空值校验
+        if (StringUtils.isBlank(douyinIdStr)) {
+            return AjaxResult.error("抖音ID不能为空");
         }
 
+        // 3. 切割为集合（自动去空格、过滤空串）
+        List<String> douyinIdList = Arrays.stream(douyinIdStr.split(","))
+                .map(String::trim)
+                .filter(StringUtils::isNotBlank)
+                .distinct()  // 去重，避免重复处理
+                .collect(Collectors.toList());
 
+        if (StringUtils.isEmpty(douyinIdList)) {
+            return AjaxResult.error("未获取到有效抖音ID");
+        }
 
-        return AjaxResult.success();
+        // 4. 循环处理每个抖音ID
+        for (String id : douyinIdList) {
+            // 组装查询条件
+            VideoTags queryTag = new VideoTags();
+            queryTag.setDouyinId(id);
+
+            // 查询是否已存在
+            List<VideoTags> existList = videoTagsService.selectVideoTagsList(queryTag);
+            if (StringUtils.isNotEmpty(existList)) {
+                // 存在 → 更新
+                VideoTags updateTag = existList.get(0);
+                updateTag.setDevId(videoTags.getDevId());
+                updateTag.setTags(videoTags.getTags());
+                updateTag.setStatus("0");
+                videoTagsService.updateVideoTags(updateTag);
+            } else {
+                // 不存在 → 新增
+                VideoTags insertTag = new VideoTags();
+                insertTag.setDouyinId(id);
+                insertTag.setDevId(videoTags.getDevId());
+                insertTag.setTags(videoTags.getTags());
+                insertTag.setStatus("0");
+                insertTag.setTaskId(3L);
+                videoTagsService.insertVideoTags(insertTag);
+            }
+
+            // 5. 记录运行日志
+            RunLog runLog = new RunLog();
+            runLog.setDevId(videoTags.getDevId());
+            runLog.setDouyinId(id);
+            runLog.setType("新增");
+
+            // 日志描述
+            String userId = videoTags.getUserId();
+            if (StringUtils.isNotBlank(userId)) {
+                runLog.setRuningDetail("新增抖音" + id + "数据到" + userId + "任务列表");
+            } else {
+                runLog.setRuningDetail("新增抖音" + id + "数据到任务列表");
+            }
+            runLogService.insertRunLog(runLog);
+        }
+
+        return AjaxResult.success("操作成功");
     }
 
     /**
