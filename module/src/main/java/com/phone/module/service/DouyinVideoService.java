@@ -358,9 +358,17 @@ public class DouyinVideoService {
                 );
                 driver.startRecordingScreen();
 
-                int[] videoCountResult = countSearchVideosUntilNoMore(driver);
-                String workesCount = String.valueOf(videoCountResult[0] > 0 ? videoCountResult[0] : 100);
-                logger.info("综合视频列表统计数量: " + workesCount);
+                String workesCount = getStoredWorksCount(accountName);
+                if (!StringUtils.isNotBlank(workesCount)) {
+                    int[] videoCountResult = countSearchVideosUntilNoMore(driver);
+                    workesCount = String.valueOf(videoCountResult[0] > 0 ? videoCountResult[0] : 100);
+                    logger.info("综合视频列表统计数量: " + workesCount);
+
+                    Map<String, Object> result = buildComprehensiveVideoAccountInfo(accountName, workesCount);
+                    douyinTaskService.storeAccountAsync(devId, accountName, result, tags);
+                } else {
+                    logger.info("使用已保存的综合视频数量: " + workesCount);
+                }
 
                 driver.navigate().back();
                 Thread.sleep(1000);
@@ -450,6 +458,41 @@ public class DouyinVideoService {
             }
         }
         return null;
+    }
+
+    private String getStoredWorksCount(String accountName) {
+        try {
+            Account account = new Account();
+            account.setDouyinId(accountName);
+            List<Account> lists = accountService.selectAccountList(account);
+            if (lists == null || lists.isEmpty()) {
+                return "";
+            }
+
+            String json = lists.get(0).getJsonString();
+            if (!StringUtils.isNotBlank(json)) {
+                return "";
+            }
+
+            JSONObject obj = JSONObject.parseObject(json);
+            String worksCount = obj.getString("works_count");
+            return StringUtils.isNotBlank(worksCount) ? worksCount : "";
+        } catch (Exception e) {
+            logger.warning("读取已保存作品数失败: " + e.getMessage());
+            return "";
+        }
+    }
+
+    private Map<String, Object> buildComprehensiveVideoAccountInfo(String accountName, String worksCount) {
+        Map<String, Object> result = new LinkedHashMap<>();
+        result.put("id", accountName);
+        result.put("nickname", accountName);
+        result.put("search_keyword", accountName);
+        result.put("type", "综合视频");
+        result.put("works", "综合视频");
+        result.put("works_count", worksCount);
+        result.put("video_count", StringUtils.isNotBlank(worksCount) ? worksCount : "0");
+        return result;
     }
 
     private int[] countSearchVideosUntilNoMore(AndroidDriver<MobileElement> driver) {
