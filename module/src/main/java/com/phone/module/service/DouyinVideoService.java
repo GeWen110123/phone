@@ -12,8 +12,10 @@ import com.phone.module.domain.*;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.net.URL;
+import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -355,9 +358,20 @@ public class DouyinVideoService {
                 );
                 driver.startRecordingScreen();
 
-                String workesCount = "100"; // 兜底默认值，避免空值
+                int[] videoCountResult = countSearchVideosUntilNoMore(driver);
+                String workesCount = String.valueOf(videoCountResult[0] > 0 ? videoCountResult[0] : 100);
+                logger.info("综合视频列表统计数量: " + workesCount);
 
+                driver.navigate().back();
+                Thread.sleep(1000);
+                if (!crawler.searchAndEnterVideoTab(accountName)) return null;
                 Thread.sleep(800); // 页面稳定
+
+                if (!clickFirstSearchVideoIfPresent(driver)) {
+                    logger.warning("click first search video failed");
+                    return null;
+                }
+                Thread.sleep(1500);
 
 
                 return fetcher.addressVideosAndComments(workesCount, devId, accountName, tags);
@@ -436,6 +450,161 @@ public class DouyinVideoService {
             }
         }
         return null;
+    }
+
+    private int[] countSearchVideosUntilNoMore(AndroidDriver<MobileElement> driver) {
+        Set<String> videoSigns = new LinkedHashSet<>();
+        int swipeCount = 0;
+        int sameCountTimes = 0;
+        int maxSwipe = 100;
+
+        while (swipeCount <= maxSwipe) {
+            int before = videoSigns.size();
+            collectVisibleSearchVideos(driver, videoSigns);
+
+            if (hasNoMoreSearchVideos(driver)) {
+                logger.info("综合视频列表已到底，统计数量: " + videoSigns.size());
+                break;
+            }
+
+            if (videoSigns.size() == before) {
+                sameCountTimes++;
+            } else {
+                sameCountTimes = 0;
+            }
+
+            if (sameCountTimes >= 5) {
+                logger.warning("综合视频列表连续多次没有新增，停止统计，当前数量: " + videoSigns.size());
+                break;
+            }
+
+            if (!swipeSearchResults(driver, true)) {
+                break;
+            }
+
+            swipeCount++;
+            sleepQuietly(1000);
+        }
+
+        collectVisibleSearchVideos(driver, videoSigns);
+        return new int[]{videoSigns.size(), swipeCount};
+    }
+
+    private void collectVisibleSearchVideos(AndroidDriver<MobileElement> driver, Set<String> videoSigns) {
+        try {
+            Dimension size = driver.manage().window().getSize();
+            List<MobileElement> cards = driver.findElements(By.xpath(
+                    "//android.widget.LinearLayout[@resource-id='com.ss.android.ugc.aweme:id/c7f']"
+            ));
+
+            for (MobileElement card : cards) {
+                if (!card.isDisplayed()) continue;
+
+                Rectangle rect = card.getRect();
+                if (rect.getY() < 320 || rect.getY() > size.getHeight() - 80) {
+                    continue;
+                }
+
+                String sign = buildSearchVideoSign(card);
+                if (StringUtils.isNotBlank(sign)) {
+                    videoSigns.add(sign);
+                }
+            }
+        } catch (Exception e) {
+            logger.warning("collect search videos failed: " + e.getMessage());
+        }
+    }
+
+    private String buildSearchVideoSign(MobileElement card) {
+        StringBuilder sign = new StringBuilder();
+        String[] xpaths = {
+                ".//*[contains(@resource-id,'desc')]",
+                ".//*[contains(@resource-id,'title')]",
+                ".//android.widget.TextView"
+        };
+
+        for (String xpath : xpaths) {
+            try {
+                List<MobileElement> texts = card.findElements(By.xpath(xpath));
+                for (MobileElement text : texts) {
+                    String value = Optional.ofNullable(text.getText()).orElse("").trim();
+                    if (StringUtils.isNotBlank(value) && sign.indexOf(value) < 0) {
+                        sign.append(value).append("|");
+                    }
+                }
+            } catch (Exception ignored) {
+            }
+        }
+
+        return sign.toString();
+    }
+
+    private boolean hasNoMoreSearchVideos(AndroidDriver<MobileElement> driver) {
+        try {
+            return !driver.findElements(By.xpath(
+                    "//*[contains(@text,'暂时没有更多') or contains(@text,'没有更多') " +
+                            "or contains(@content-desc,'暂时没有更多') or contains(@content-desc,'没有更多')]"
+            )).isEmpty();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private boolean swipeSearchResults(AndroidDriver<MobileElement> driver, boolean up) {
+        try {
+            Dimension size = driver.manage().window().getSize();
+            int x = size.getWidth() / 2;
+            int startY = up ? (int) (size.getHeight() * 0.78) : (int) (size.getHeight() * 0.35);
+            int endY = up ? (int) (size.getHeight() * 0.35) : (int) (size.getHeight() * 0.78);
+
+            new TouchAction<>(driver)
+                    .press(PointOption.point(x, startY))
+                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(350)))
+                    .moveTo(PointOption.point(x, endY))
+                    .release()
+                    .perform();
+            return true;
+        } catch (Exception e) {
+            logger.warning("swipe search results failed: " + e.getMessage());
+            return false;
+        }
+    }
+
+    private void sleepQuietly(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException ignored) {
+        }
+    }
+
+    private boolean clickFirstSearchVideoIfPresent(AndroidDriver<MobileElement> driver) {
+        String[] xpaths = {
+                "//android.widget.LinearLayout[@resource-id='com.ss.android.ugc.aweme:id/c7f' and @clickable='true']",
+                "//android.view.View[@resource-id='com.ss.android.ugc.aweme:id/p=1' and @clickable='true']",
+                "//android.widget.ImageView[@resource-id='com.ss.android.ugc.aweme:id/cover']"
+        };
+
+        for (String xpath : xpaths) {
+            try {
+                List<MobileElement> elements = driver.findElements(By.xpath(xpath));
+                for (MobileElement element : elements) {
+                    if (!element.isDisplayed()) continue;
+
+                    Rectangle rect = element.getRect();
+                    if (rect.getY() < 320 || rect.getHeight() <= 0 || rect.getWidth() <= 0) {
+                        continue;
+                    }
+
+                    MobileElement clickable = findClickableParent(driver, element, 3);
+                    tapCenter(driver, clickable != null ? clickable : element);
+                    logger.info("clicked first search video by xpath: " + xpath);
+                    return true;
+                }
+            } catch (Exception ignored) {
+            }
+        }
+
+        return false;
     }
 
     private void tapCenter(AndroidDriver<MobileElement> driver, MobileElement el) {

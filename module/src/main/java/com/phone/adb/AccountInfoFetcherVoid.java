@@ -340,6 +340,16 @@ public class AccountInfoFetcherVoid {
         return false;
     }
 
+    private boolean isOnVideoDetailPage() {
+        String[] xps = {
+                "//*[@resource-id='com.ss.android.ugc.aweme:id/desc']",
+                "//*[@resource-id='com.ss.android.ugc.aweme:id/title']",
+                "//*[contains(@content-desc,'喜欢')]",
+                "//*[contains(@content-desc,'评论')]"
+        };
+        return anyExists(xps);
+    }
+
 
     // ---------------------------------------------------------
     // 单个视频数据读取：UID/描述/计数
@@ -1213,7 +1223,7 @@ public class AccountInfoFetcherVoid {
 
 //        点击进入第一条视频
 
-        if (!goVideoList()) {
+        if (!isOnVideoDetailPage() && !goVideoList()) {
             logger.warning("无法进入作品区");
             return allVideoData;
         }
