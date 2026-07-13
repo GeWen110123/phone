@@ -1,13 +1,9 @@
 package com.phone.module.service;
 
-import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.phone.adb.AccountInfoFetcherVoid;
 import com.phone.adb.DouyinCrawler;
 import com.phone.common.utils.StringUtils;
 import com.phone.module.domain.*;
-import com.phone.module.mapper.VideoMapper;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -22,21 +18,14 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 
 @Service
 public class DouyinTaskService {
 
     private static final Logger logger = Logger.getLogger(DouyinTaskService.class.getName());
-
-
-    private final ExecutorService dbExecutor = Executors.newFixedThreadPool(3);
-
 
     @Autowired
     private IAccountService accountService;
@@ -99,9 +88,8 @@ public class DouyinTaskService {
 
         } catch (Exception e) {
             logger.severe("爬取账号信息异常: " + e.getMessage());
-            e.printStackTrace();
         } finally {
-            if (driver != null) driver.quit();
+            closeDriverQuietly(driver);
         }
 
 
@@ -113,19 +101,31 @@ public class DouyinTaskService {
     private boolean isDeviceOnline(String devId) {
         try {
             Process p = Runtime.getRuntime().exec("C:\\Android\\sdk\\platform-tools\\adb.exe devices");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                line = line.trim();
-                if (line.startsWith(devId) && line.endsWith("device")) {
-                    return true;
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    line = line.trim();
+                    if (line.startsWith(devId) && line.endsWith("device")) {
+                        return true;
+                    }
                 }
             }
         } catch (IOException e) {
             logger.severe("检查设备状态失败: " + e.getMessage());
-            e.printStackTrace();
         }
         return false;
+    }
+
+    private void closeDriverQuietly(AndroidDriver<MobileElement> driver) {
+        if (driver == null) {
+            return;
+        }
+
+        try {
+            driver.quit();
+        } catch (Exception e) {
+            logger.warning("关闭驱动时异常：" + e.getMessage());
+        }
     }
 
 

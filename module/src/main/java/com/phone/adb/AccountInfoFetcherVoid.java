@@ -450,7 +450,7 @@ public class AccountInfoFetcherVoid {
         for (String xp : xps) {
             List<MobileElement> eles = findAll(xp);
             if (!eles.isEmpty()) {
-                System.out.println("xp::===" + xp);
+                logger.fine("description xpath: " + xp);
                 return safeText(eles.get(0));
             }
         }
@@ -477,9 +477,10 @@ public class AccountInfoFetcherVoid {
             List<MobileElement> eles = findAll(xp);
             for (MobileElement e : eles) {
                 String text = safeText(e);
-                if (text != null && text.matches(".*\\d.*"))
-                    System.out.println("p::==" + xp);
-                return cleanNumberString(text);
+                if (text != null && text.matches(".*\\d.*")) {
+                    logger.fine("stat xpath: " + xp);
+                    return cleanNumberString(text);
+                }
             }
         }
         return "0";
@@ -607,7 +608,7 @@ public class AccountInfoFetcherVoid {
 
                         if (parsed != null && parsed > 0) {
                             videoDurationHolder[0] = parsed;
-                            System.out.println("解析到视频时长: " + parsed + " 秒");
+                            logger.info("解析到视频时长: " + parsed + " 秒");
                             return;
                         }
                         Thread.sleep(150);
@@ -626,13 +627,13 @@ public class AccountInfoFetcherVoid {
             Thread.sleep(500);
 
             if (videoDurationHolder[0] <= 0) {
-                System.out.println("未获取到视频时长");
+                logger.info("未获取到视频时长");
                 return 0;
             }
             return videoDurationHolder[0];
 
         } catch (Exception e) {
-            System.out.println("extractVideoDuration 异常: " + e.getMessage());
+            logger.warning("extractVideoDuration 异常: " + e.getMessage());
             return 14;
         }
     }
@@ -1193,6 +1194,21 @@ public class AccountInfoFetcherVoid {
         return Constants.RESOURCE_PREFIX + "/" + relative;
     }
 
+    private int parseMaxVideos(String count) {
+        if (StringUtils.isEmpty(count)) {
+            return 0;
+        }
+
+        try {
+            int maxVideos = Integer.parseInt(count.trim());
+            logger.info("解析到作品数量: " + maxVideos);
+            return maxVideos;
+        } catch (Exception e) {
+            logger.warning("作品数量解析失败: " + count);
+            return 0;
+        }
+    }
+
     // ---------------------------------------------------------
     // ⭐ 主流程：录制所有视频 + 获取评论 + 截图 + 保存数据
     // ---------------------------------------------------------
@@ -1202,15 +1218,11 @@ public class AccountInfoFetcherVoid {
 
         List<Map<String, Object>> allVideoData = new ArrayList<>();
         Set<String> processed = new HashSet<>();
-        boolean comprehensiveVideo = tags != null && tags.contains("综合视频");
+        String safeTags = tags == null ? "" : tags;
+        boolean comprehensiveVideo = safeTags.contains("综合视频");
 
         int index = 0;
-        int maxVideos = 0;
-
-        if (!count.isEmpty()) {
-            maxVideos = Integer.parseInt(count);
-            logger.info("解析到作品数量: " + maxVideos);
-        }
+        int maxVideos = parseMaxVideos(count);
 
 
         if (maxVideos <= 0) {
@@ -1307,7 +1319,7 @@ public class AccountInfoFetcherVoid {
 
 
                 String douyinId = "";
-                if (tags.contains("基本信息")) {
+                if (safeTags.contains("基本信息")) {
 //                    点击进入主页
                     // 1️⃣ 点击进入作者主页
                     if (!enterAuthorProfile()) {
@@ -1336,7 +1348,7 @@ public class AccountInfoFetcherVoid {
                                     accountService,douyinTaskService);
                     Map<String, Object> result = fetcher1.getAccountBasicInfo("2","0",deviceId,douyinId);
                     douyinId = (String) result.get("id");
-                    douyinTaskService.storeAccountAsync(deviceId, douyinId, result,tags);
+                    douyinTaskService.storeAccountAsync(deviceId, douyinId, result, safeTags);
                     driver.navigate().back();
                     Thread.sleep(1000);
                 }
@@ -1357,7 +1369,7 @@ public class AccountInfoFetcherVoid {
                 video.put("share_count", getShareCount());
                 video.put("collect_count", getFavoriteCount());
 
-                if (tags.contains("视频")) {
+                if (safeTags.contains("视频")) {
                     //                 ◆ 线程版解析视频时长（增加重试，确保获取到）
                     int duration = 0;
                     int maxRetry = 5;
@@ -1384,7 +1396,7 @@ public class AccountInfoFetcherVoid {
                 String screenshotPath = saveScreenshot(index);
                 video.put("screenshot_path", screenshotPath);
 
-                if (tags.contains("评论")) {
+                if (safeTags.contains("评论")) {
 
                     if (StringUtils.isNotEmpty((String) video.get("comments_count"))
                             && !video.get("comments_count").equals("0")) {

@@ -90,7 +90,7 @@ public class AccountInfoFetcher {
             if (listFollows != null && !listFollows.isEmpty() && listFollows.get(0).getJsonString() != null) {
                 return mapper.readValue(listFollows.get(0).getJsonString(), Map.class);
             }
-            List<AccountContent> listFans = accountContentService.selectFollowListByUid(douyinId);
+            List<AccountContent> listFans = accountContentService.selectFansListByUid(douyinId);
             if (listFans != null && !listFans.isEmpty() && listFans.get(0).getJsonString() != null) {
                 return mapper.readValue(listFans.get(0).getJsonString(), Map.class);
             }

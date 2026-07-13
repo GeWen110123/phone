@@ -26,9 +26,6 @@ import org.springframework.stereotype.Service;
 import java.net.URL;
 import java.time.Duration;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 @Service
@@ -57,7 +54,6 @@ public class DouyinVideoService {
     /**
      * 用于 DB 写入
      */
-    private final ExecutorService dbExecutor = Executors.newFixedThreadPool(3);
 
     /**
      * 异步入口
@@ -412,19 +408,10 @@ public class DouyinVideoService {
 
         } catch (Exception e) {
             logger.severe("❌ crawlSingleAccount 异常：" + e.getMessage());
-            // 打印完整堆栈，方便定位问题（补充原有缺失）
-            e.printStackTrace();
             return null;
         } finally {
             // ========== 修复：优雅关闭驱动，避免端口残留 ==========
-            if (driver != null) {
-                try {
-                    driver.stopRecordingScreen(); // 停止录屏（避免资源泄漏）
-                    driver.quit(); // 关闭驱动
-                } catch (Exception e) {
-                    logger.warning("关闭驱动时异常：" + e.getMessage());
-                }
-            }
+            closeDriverQuietly(driver);
         }
     }
     /**
@@ -445,6 +432,24 @@ public class DouyinVideoService {
             }
         }
         return false;
+    }
+
+    private void closeDriverQuietly(AndroidDriver<MobileElement> driver) {
+        if (driver == null) {
+            return;
+        }
+
+        try {
+            driver.stopRecordingScreen();
+        } catch (Exception e) {
+            logger.fine("stop recording ignored: " + e.getMessage());
+        }
+
+        try {
+            driver.quit();
+        } catch (Exception e) {
+            logger.warning("关闭驱动时异常：" + e.getMessage());
+        }
     }
 
     private MobileElement findClickableParent(AndroidDriver<MobileElement> driver, MobileElement el, int maxLevel) {
