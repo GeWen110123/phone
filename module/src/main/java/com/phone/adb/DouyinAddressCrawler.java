@@ -68,6 +68,24 @@ public class DouyinAddressCrawler {
     }
 
     // ===========================
+    // 搜索地址并进入视频
+    // ===========================
+    public boolean searchAddressVoid(String accountName) {
+        return searchAndEnterVideoTab(accountName);
+    }
+
+    public boolean searchAndEnterVideoTab(String keyword) {
+        logger.info("开始搜索综合视频: " + keyword);
+
+        if (!isDeviceConnected()) return false;
+        if (!clickSearchButton()) return false;
+        if (!inputSearchText(keyword)) return false;
+        if (!clickSearchSubmit()) return false;
+        if (!selectVideoTab()) return false;
+        return true;
+    }
+
+    // ===========================
     // 搜索账号并进入地址视频分类
     // ===========================
     public boolean searchAndEnterAddress(String accountName) {
@@ -306,6 +324,22 @@ public class DouyinAddressCrawler {
             }
         }
         logger.warning("用户分类Tab未找到");
+        return false;
+    }
+    private boolean selectVideoTab() {
+        String[] tabXpaths = {
+                "//*[contains(@resource-id, 'tab_video')]",
+                "//*[@text='视频']",
+                "//*[contains(@content-desc,'视频')]",
+                "//android.widget.TextView[@clickable='true' and contains(@text,'视频')]"
+        };
+        for (String xp : tabXpaths) {
+            if (clickIfExists(xp)) {
+                sleep(2000);
+                return true;
+            }
+        }
+        logger.warning("视频分类Tab未找到");
         return false;
     }
 

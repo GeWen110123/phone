@@ -340,6 +340,28 @@ public class DouyinVideoService {
 
                 return fetcher.addressVideosAndComments(workesCount, devId, accountName, tags);
 
+            } else if (tags.contains("综合视频")) {
+                DouyinAddressCrawler crawler = new DouyinAddressCrawler(driver);
+                if (!crawler.startDouyin()) return null;
+                if (!crawler.searchAndEnterVideoTab(accountName)) return null;
+
+                AccountInfoFetcherVoid fetcher = new AccountInfoFetcherVoid(driver,
+                        videoService,
+                        addressVideoService,
+                        douyinTaskService,
+                        accountContentService,
+                        addressAccountContentService,
+                        accountService
+                );
+                driver.startRecordingScreen();
+
+                String workesCount = "100"; // 兜底默认值，避免空值
+
+                Thread.sleep(800); // 页面稳定
+
+
+                return fetcher.addressVideosAndComments(workesCount, devId, accountName, tags);
+
             } else {
                 DouyinCrawler crawler = new DouyinCrawler(driver,
                         accountContentService,

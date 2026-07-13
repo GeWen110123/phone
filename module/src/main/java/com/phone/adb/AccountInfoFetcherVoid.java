@@ -1192,6 +1192,7 @@ public class AccountInfoFetcherVoid {
 
         List<Map<String, Object>> allVideoData = new ArrayList<>();
         Set<String> processed = new HashSet<>();
+        boolean comprehensiveVideo = tags != null && tags.contains("综合视频");
 
         int index = 0;
         int maxVideos = 0;
@@ -1278,7 +1279,10 @@ public class AccountInfoFetcherVoid {
                     continue;
                 }
 // 数据库去重
-                if (addressVideoService.selectAddressVideoByUid(uid) != null) {
+                boolean existsInDb = comprehensiveVideo
+                        ? videoService.selectVideoByUId(uid) != null
+                        : addressVideoService.selectAddressVideoByUid(uid) != null;
+                if (existsInDb) {
                     logger.info("视频已存在数据库，跳过");
                     processed.add(uid); // 可选：避免后面再次查询 DB
                     if (!swipeToNextVideo()) break;
@@ -1359,7 +1363,8 @@ public class AccountInfoFetcherVoid {
                     logger.info("🎬 解析到视频时长: " + duration + " 秒");
 
 //                // ◆ 录制视频
-                    String videoPath = recordVideoToFile(index, duration, deviceId, douyinId);
+                    String videoPath = recordVideoToFile(index, duration, deviceId,
+                            comprehensiveVideo ? address : douyinId);
                     video.put("video_path", videoPath);
                 } else {
                     video.put("video_path", "");
@@ -1382,7 +1387,7 @@ public class AccountInfoFetcherVoid {
                                 addressAccountContentService,
                                 accountService);
 // 抓取当前视频的全部评论（包含 totalComments + comments + json_path）
-                        Map<String, Object> commentResult = fetcher.fetchAllComments("2", address, uid, deviceId, index, videosDir, (String) video.get("comments_count"));
+                        Map<String, Object> commentResult = fetcher.fetchAllComments(comprehensiveVideo ? "1" : "2", address, uid, deviceId, index, videosDir, (String) video.get("comments_count"));
 // 取出评论数组
                         List<Map<String, Object>> comments = (List<Map<String, Object>>) commentResult.get("comments");
 // 写入视频数据
@@ -1402,7 +1407,11 @@ public class AccountInfoFetcherVoid {
                 }
                 allVideoData.add(video);
 
-                saveSingleVideoByAddress(video, deviceId, douyinId, address);
+                if (comprehensiveVideo) {
+                    saveSingleVideo(video, deviceId, address);
+                } else {
+                    saveSingleVideoByAddress(video, deviceId, douyinId, address);
+                }
 
 
                 logger.info("第 " + (index + 1) + " 个视频处理完成");
