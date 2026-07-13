@@ -7,9 +7,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.phone.common.utils.StringUtils;
 import com.phone.module.domain.*;
-import com.phone.module.service.IAccountService;
-import com.phone.module.service.ICommentService;
-import com.phone.module.service.IVideoTagsService;
+import com.phone.module.service.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,20 +22,18 @@ import com.phone.common.annotation.Log;
 import com.phone.common.core.controller.BaseController;
 import com.phone.common.core.domain.AjaxResult;
 import com.phone.common.enums.BusinessType;
-import com.phone.module.service.IAddressVideoService;
 import com.phone.common.utils.poi.ExcelUtil;
 import com.phone.common.core.page.TableDataInfo;
 
 /**
  * 地址视频总Controller
- * 
+ *
  * @author ruoyi
  * @date 2026-01-09
  */
 @RestController
 @RequestMapping("/module/AddressVideo")
-public class AddressVideoController extends BaseController
-{
+public class AddressVideoController extends BaseController {
     @Autowired
     private IAddressVideoService addressVideoService;
     @Autowired
@@ -48,7 +44,8 @@ public class AddressVideoController extends BaseController
 
     @Autowired
     private ICommentService commentService;
-
+    @Autowired
+    private IVideoService videoService;
 
     /**
      * 查询地址视频总列表
@@ -57,23 +54,33 @@ public class AddressVideoController extends BaseController
     public TableDataInfo list(AddressVideo addressVideo) throws JsonProcessingException {
         startPage();
         List<AddressVideo> list = addressVideoService.selectAddressVideoList(addressVideo);
-        if (StringUtils.isNotEmpty(addressVideo.getAddress())){
-            for (AddressVideo v:list){
+        if (StringUtils.isNotEmpty(addressVideo.getAddress())) {
+            for (AddressVideo v : list) {
                 Account account = new Account();
                 account.setDouyinId(v.getDouyinId());
                 List<Account> lista = accountService.selectAccountList(account);
-                if (lista.size()>0){
-                    account=lista.get(0);
+                if (lista.size() > 0) {
+                    account = lista.get(0);
                     v.setUserJson(account);
                 }
 
-                VideoTags tags =new VideoTags();
+                VideoTags tags = new VideoTags();
                 tags.setDouyinId(v.getDouyinId());
                 List<VideoTags> listTags = videoTagsService.selectVideoTagsList(tags);
-                if (listTags.size()>0){
+                if (listTags.size() > 0) {
                     v.setStatus(listTags.get(0).getStatus());
-                }else {
+                } else {
                     v.setStatus("9");
+                }
+
+
+                Video video = new Video();
+                video.setDouyinId(v.getDouyinId());
+                List<Video> listVideo = videoService.selectVideoList(video);
+                if ("0".equals(v.getStatus())||"9".equals(v.getStatus())){
+                    if (listVideo.size() > 0) {
+                        v.setStatus("10");
+                    }
                 }
 
 
@@ -94,12 +101,12 @@ public class AddressVideoController extends BaseController
         }
         return getDataTable(list);
     }
+
     /**
      * 查询地址视频总列表
      */
     @GetMapping("/listByIp")
-    public AjaxResult listByIp(AddressVideo addressVideo)
-    {
+    public AjaxResult listByIp(AddressVideo addressVideo) {
 
         List<String> list = addressVideoService.selectAddressListByIp(addressVideo);
 
@@ -111,8 +118,7 @@ public class AddressVideoController extends BaseController
      */
     @Log(title = "地址视频总", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
-    public void export(HttpServletResponse response, AddressVideo addressVideo)
-    {
+    public void export(HttpServletResponse response, AddressVideo addressVideo) {
         List<AddressVideo> list = addressVideoService.selectAddressVideoList(addressVideo);
         ExcelUtil<AddressVideo> util = new ExcelUtil<AddressVideo>(AddressVideo.class);
         util.exportExcel(list, "地址视频总数据");
@@ -122,8 +128,7 @@ public class AddressVideoController extends BaseController
      * 获取地址视频总详细信息
      */
     @GetMapping(value = "/{uid}")
-    public AjaxResult getInfo(@PathVariable("uid") String uid)
-    {
+    public AjaxResult getInfo(@PathVariable("uid") String uid) {
         return AjaxResult.success(addressVideoService.selectAddressVideoByUid(uid));
     }
 
@@ -132,8 +137,7 @@ public class AddressVideoController extends BaseController
      */
     @Log(title = "地址视频总", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody AddressVideo addressVideo)
-    {
+    public AjaxResult add(@RequestBody AddressVideo addressVideo) {
         return toAjax(addressVideoService.insertAddressVideo(addressVideo));
     }
 
@@ -142,8 +146,7 @@ public class AddressVideoController extends BaseController
      */
     @Log(title = "地址视频总", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@RequestBody AddressVideo addressVideo)
-    {
+    public AjaxResult edit(@RequestBody AddressVideo addressVideo) {
         return toAjax(addressVideoService.updateAddressVideo(addressVideo));
     }
 
@@ -151,9 +154,8 @@ public class AddressVideoController extends BaseController
      * 删除地址视频总
      */
     @Log(title = "地址视频总", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{uids}")
-    public AjaxResult remove(@PathVariable String[] uids)
-    {
+    @DeleteMapping("/{uids}")
+    public AjaxResult remove(@PathVariable String[] uids) {
         return toAjax(addressVideoService.deleteAddressVideoByUids(uids));
     }
 }
