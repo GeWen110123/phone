@@ -15,11 +15,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="taskId"    column="task_id"    />
         <result property="taskName"    column="task_name"    />
         <result property="remark"    column="remark"    />
+        <result property="address"    column="address"    />
         <result property="runNum"    column="run_num"    />
     </resultMap>
 
     <sql id="selectVideoTagsVo">
-        select id, dev_id, douyin_id, create_time, tags, status, task_id , task_name, remark , run_num , update_time from video_tags
+        select id, dev_id, douyin_id, create_time, tags, status, task_id , task_name, remark , address , run_num , update_time from video_tags
     </sql>
 
     <select id="selectVideoTagsList" parameterType="VideoTags" resultMap="VideoTagsResult">
@@ -32,6 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="taskId != null  and taskId != ''"> and task_id = #{taskId}</if>
             <if test="taskName != null  and taskName != ''"> and task_name = #{taskName}</if>
             <if test="remark != null  and remark != ''"> and remark = #{remark}</if>
+            <if test="address != null  and address != ''"> and address = #{address}</if>
         </where>
         ORDER BY update_time DESC
     </select>
@@ -47,6 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="taskId != null  and taskId != ''"> and task_id = #{taskId}</if>
             <if test="taskName != null  and taskName != ''"> and task_name = #{taskName}</if>
             <if test="remark != null  and remark != ''"> and remark = #{remark}</if>
+            <if test="address != null  and address != ''"> and address = #{address}</if>
         </where>
         ORDER BY update_time ASC
     </select>
@@ -67,6 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="taskId != null">task_id,</if>
             <if test="taskName != null">task_name,</if>
             <if test="remark != null">remark,</if>
+            <if test="address != null">address,</if>
             <if test="runNum != null">run_num,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -78,6 +82,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="taskId != null">#{taskId},</if>
             <if test="taskName != null">#{taskName},</if>
             <if test="remark != null">#{remark},</if>
+            <if test="address != null">#{address},</if>
             <if test="runNum != null">#{runNum},</if>
          </trim>
     </insert>
@@ -94,6 +99,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="taskId != null">task_id = #{taskId},</if>
             <if test="taskName != null">task_name = #{taskName},</if>
             <if test="remark != null">remark = #{remark},</if>
+            <if test="address != null">address = #{address},</if>
             <if test="runNum != null">run_num = #{runNum},</if>
         </trim>
         where id = #{id}

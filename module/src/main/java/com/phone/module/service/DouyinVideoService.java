@@ -6,11 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.phone.adb.AccountInfoFetcherVoid;
 import com.phone.adb.DouyinAddressCrawler;
 import com.phone.adb.DouyinCrawler;
+import com.phone.adb.PlaceMockLocationHelper;
 import com.phone.adb.XPathRegistry;
 import com.phone.common.utils.StringUtils;
 import com.phone.module.domain.*;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -198,8 +200,13 @@ public class DouyinVideoService {
                                             String lockKey,
                                             boolean locked) {
         try {
+            if (tags.getTags().contains("附近")){
+                crawlSingleAccount(devId, accountName, tags.getTags(),tags.getAddress());
+            }else {
+                crawlSingleAccount(devId, accountName, tags.getTags(),"");
+
+            }
             // 执行抓取
-            crawlSingleAccount(devId, accountName, tags.getTags());
         } catch (Exception e) {
             logger.severe("❌ Redis 分布式锁错误：" + e.getMessage());
         } finally {
@@ -213,7 +220,7 @@ public class DouyinVideoService {
     /**
      * 单设备抓取（修复版：解决 socket hang up 错误）
      */
-    public List<Map<String, Object>> crawlSingleAccount(String devId, String accountName, String tags) {
+    public List<Map<String, Object>> crawlSingleAccount(String devId, String accountName, String tags, String address) {
         AndroidDriver<MobileElement> driver = null;
 
         try {
@@ -380,6 +387,37 @@ public class DouyinVideoService {
 
                 return fetcher.addressVideosAndComments(workesCount, devId, accountName, tags);
 
+            }else if (tags.contains("附近")) {
+
+                if (StringUtils.isNotEmpty(address)){
+                    if (!startPlaceMockLocation(driver, devId, address)) {
+                        logger.warning("全国模拟定位启动失败，address=" + address);
+                        return null;
+                    }
+                }
+
+                DouyinAddressCrawler crawler = new DouyinAddressCrawler(driver);
+                if (!crawler.startDouyin()) return null;
+
+                AccountInfoFetcherVoid fetcher = new AccountInfoFetcherVoid(driver,
+                        videoService,
+                        addressVideoService,
+                        douyinTaskService,
+                        accountContentService,
+                        addressAccountContentService,
+                        accountService
+                );
+                driver.startRecordingScreen();
+
+                Thread.sleep(1500);
+                if (!swipeLeftToNearbyVideoFeed(driver)) {
+                    logger.warning("swipe left to nearby video feed failed");
+                    return null;
+                }
+                Thread.sleep(1500);
+
+                return fetcher.addressVideosAndComments(String.valueOf(Integer.MAX_VALUE), devId, accountName, tags);
+
             } else {
                 DouyinCrawler crawler = new DouyinCrawler(driver,
                         accountContentService,
@@ -463,6 +501,173 @@ public class DouyinVideoService {
             }
         }
         return null;
+    }
+
+    private boolean startPlaceMockLocation(AndroidDriver<MobileElement> driver, String devId, String address) {
+        try {
+            if (!PlaceMockLocationHelper.configureMockLocationApp(devId)) {
+                return false;
+            }
+
+            driver.startActivity(new Activity(PlaceMockLocationHelper.PACKAGE_NAME, PlaceMockLocationHelper.MAIN_ACTIVITY));
+            Thread.sleep(2500);
+            clickByAnyText(driver, "允许", "同意", "确定", "始终允许");
+
+            if (!inputPlaceMockAddress(driver, address)) {
+                logger.warning("全国模拟定位输入地址失败: " + address);
+                return false;
+            }
+
+            if (!clickByAnyText(driver, "搜索")) {
+                logger.warning("全国模拟定位点击搜索失败");
+                return false;
+            }
+
+            Thread.sleep(2000);
+            if (!clickPlaceMockSearchResult(driver, address)) {
+                logger.warning("全国模拟定位选择搜索结果失败: " + address);
+                return false;
+            }
+
+            Thread.sleep(1000);
+            if (!clickByAnyText(driver, "开始模拟", "开始", "模拟")) {
+                logger.warning("全国模拟定位点击开始模拟失败");
+                return false;
+            }
+
+            Thread.sleep(1200);
+            logger.info("全国模拟定位已启动: " + address);
+            return true;
+        } catch (Exception e) {
+            logger.warning("全国模拟定位流程异常: " + e.getMessage());
+            return false;
+        }
+    }
+
+    private boolean inputPlaceMockAddress(AndroidDriver<MobileElement> driver, String address) {
+        String[] xpaths = {
+                "//android.widget.EditText",
+                "//*[@class='android.widget.EditText']",
+                "//*[contains(@text,'输入') or contains(@text,'地名') or contains(@content-desc,'输入') or contains(@content-desc,'地名')]"
+        };
+
+        for (String xpath : xpaths) {
+            try {
+                List<MobileElement> elements = driver.findElements(By.xpath(xpath));
+                for (MobileElement element : elements) {
+                    if (!element.isDisplayed()) continue;
+
+                    tapCenter(driver, element);
+                    try {
+                        element.clear();
+                    } catch (Exception ignored) {
+                    }
+                    element.sendKeys(address);
+                    return true;
+                }
+            } catch (Exception ignored) {
+            }
+        }
+
+        try {
+            Dimension size = driver.manage().window().getSize();
+            tapPoint(driver, size.getWidth() / 2, (int) (size.getHeight() * 0.16));
+            driver.getKeyboard().sendKeys(address);
+            return true;
+        } catch (Exception e) {
+            logger.warning("全国模拟定位兜底输入失败: " + e.getMessage());
+            return false;
+        }
+    }
+
+    private boolean clickPlaceMockSearchResult(AndroidDriver<MobileElement> driver, String address) {
+        String addressLiteral = xpathLiteral(address);
+        String[] xpaths = {
+                "//*[contains(@text," + addressLiteral + ") or contains(@content-desc," + addressLiteral + ")]",
+                "//android.widget.TextView[@clickable='true']",
+                "//*[@clickable='true' and not(contains(@text,'搜索')) and not(contains(@text,'开始'))]"
+        };
+
+        for (String xpath : xpaths) {
+            try {
+                List<MobileElement> elements = driver.findElements(By.xpath(xpath));
+                for (MobileElement element : elements) {
+                    if (!element.isDisplayed()) continue;
+
+                    Rectangle rect = element.getRect();
+                    if (rect.getY() < 180 || rect.getHeight() <= 0 || rect.getWidth() <= 0) {
+                        continue;
+                    }
+
+                    MobileElement clickable = findClickableParent(driver, element, 4);
+                    tapCenter(driver, clickable != null ? clickable : element);
+                    return true;
+                }
+            } catch (Exception ignored) {
+            }
+        }
+
+        try {
+            Dimension size = driver.manage().window().getSize();
+            tapPoint(driver, size.getWidth() / 2, (int) (size.getHeight() * 0.36));
+            return true;
+        } catch (Exception e) {
+            logger.warning("全国模拟定位兜底选择结果失败: " + e.getMessage());
+            return false;
+        }
+    }
+
+    private boolean clickByAnyText(AndroidDriver<MobileElement> driver, String... texts) {
+        StringBuilder xpath = new StringBuilder("//*[");
+        for (int i = 0; i < texts.length; i++) {
+            if (i > 0) {
+                xpath.append(" or ");
+            }
+            String literal = xpathLiteral(texts[i]);
+            xpath.append("contains(@text,").append(literal).append(") or contains(@content-desc,").append(literal).append(")");
+        }
+        xpath.append("]");
+
+        try {
+            List<MobileElement> elements = driver.findElements(By.xpath(xpath.toString()));
+            for (MobileElement element : elements) {
+                if (!element.isDisplayed()) continue;
+
+                Rectangle rect = element.getRect();
+                if (rect.getHeight() <= 0 || rect.getWidth() <= 0) {
+                    continue;
+                }
+
+                MobileElement clickable = findClickableParent(driver, element, 4);
+                tapCenter(driver, clickable != null ? clickable : element);
+                return true;
+            }
+        } catch (Exception ignored) {
+        }
+        return false;
+    }
+
+    private String xpathLiteral(String value) {
+        if (value == null) {
+            return "''";
+        }
+        if (!value.contains("'")) {
+            return "'" + value + "'";
+        }
+        if (!value.contains("\"")) {
+            return "\"" + value + "\"";
+        }
+
+        String[] parts = value.split("'");
+        StringBuilder builder = new StringBuilder("concat(");
+        for (int i = 0; i < parts.length; i++) {
+            if (i > 0) {
+                builder.append(",\"'\",");
+            }
+            builder.append("'").append(parts[i]).append("'");
+        }
+        builder.append(")");
+        return builder.toString();
     }
 
     private String getStoredWorksCount(String accountName) {
@@ -618,6 +823,26 @@ public class DouyinVideoService {
         }
     }
 
+    private boolean swipeLeftToNearbyVideoFeed(AndroidDriver<MobileElement> driver) {
+        try {
+            Dimension size = driver.manage().window().getSize();
+            int y = size.getHeight() / 2;
+            int startX = (int) (size.getWidth() * 0.82);
+            int endX = (int) (size.getWidth() * 0.18);
+
+            new TouchAction<>(driver)
+                    .press(PointOption.point(startX, y))
+                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(450)))
+                    .moveTo(PointOption.point(endX, y))
+                    .release()
+                    .perform();
+            return true;
+        } catch (Exception e) {
+            logger.warning("swipe left failed: " + e.getMessage());
+            return false;
+        }
+    }
+
     private void sleepQuietly(long millis) {
         try {
             Thread.sleep(millis);
@@ -660,6 +885,12 @@ public class DouyinVideoService {
         int x = r.getX() + r.getWidth() / 2;
         int y = r.getY() + r.getHeight() / 2;
 
+        new TouchAction<>(driver)
+                .tap(PointOption.point(x, y))
+                .perform();
+    }
+
+    private void tapPoint(AndroidDriver<MobileElement> driver, int x, int y) {
         new TouchAction<>(driver)
                 .tap(PointOption.point(x, y))
                 .perform();

@@ -1,6 +1,7 @@
 package com.phone;
 
 import com.alibaba.fastjson.JSON;
+import com.phone.adb.PlaceMockLocationHelper;
 import com.phone.module.domain.Account;
 import com.phone.module.domain.AccountIp;
 import com.phone.module.domain.AddressVideo;
@@ -49,6 +50,7 @@ public class test implements ApplicationRunner {
         System.out.println(isRunning);
         System.out.println("🚀 Douyin Task Loop 启动成功！");
 
+        PlaceMockLocationHelper.ensureInstalledOnConnectedDevices();
         getFollowCount();
         getIpAddress();
     }

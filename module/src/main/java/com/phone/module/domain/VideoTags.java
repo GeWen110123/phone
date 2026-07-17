@@ -29,6 +29,7 @@ public class VideoTags extends BaseEntity
     /** 勾选相关需要运行的项目 */
     @Excel(name = "勾选相关需要运行的项目")
     private String tags;
+    private String address;
 
 
     private String status;
@@ -40,6 +41,13 @@ public class VideoTags extends BaseEntity
     private String userId;
     private  Account account;
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getUserId() {
         return userId;
